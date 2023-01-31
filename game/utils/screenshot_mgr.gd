@@ -7,6 +7,7 @@ onready var _path_separator:= "\\" if _user_data_dir.find("\\") > -1 else "/"
 var _screenshot_max := 1000
 var _resize_factor := 1.0
 var _screenshot_action_name := "toggle_screenshots"
+var _single_screenshot_action_name := "take_screenshot"
 var _frame_delay := 0.2
 var _directory_name := ""
 var _file_counter := 0
@@ -44,7 +45,22 @@ func _init_settings():
 
 
 func _input(event):
-	if !event.is_action_pressed(_screenshot_action_name) or event.is_echo():
+	if event.is_echo():
+		return
+	if event.is_action_pressed(_single_screenshot_action_name):
+		if !_user_data_directory.dir_exists("screenshots"):
+			if OK != _user_data_directory.make_dir("screenshots"):
+				printerr("ScreenshotMgr: could not create screenshots folder.  Can't save screenshot")
+				return
+
+		var image = get_viewport().get_texture().get_data()
+		var thread := Thread.new()
+		_threads.append(thread)
+		if OK != thread.start(self, "_save_image", [image, thread, true]):
+			printerr("ScreenshotMgr: could not start thread to complete saving of screenshot image.")
+		return
+		
+	if !event.is_action_pressed(_screenshot_action_name):
 		return
 	if !is_physics_processing():
 		_directory_name = get_date_time_string()
@@ -89,7 +105,7 @@ func _physics_process(delta):
 	var image = get_viewport().get_texture().get_data()
 	var thread := Thread.new()
 	_threads.append(thread)
-	if OK != thread.start(self, "_save_image", [image, thread]):
+	if OK != thread.start(self, "_save_image", [image, thread, false]):
 		printerr("ScreenshotMgr: could not start thread to complete saving of screenshot image.")
 	_file_counter += 1
 
@@ -100,7 +116,10 @@ func _save_image(data: Array) -> void:
 	if _resize_factor != 1.0:
 		var original_size = image.get_size()
 		image.resize(original_size.x*_resize_factor, original_size.y*_resize_factor, Image.INTERPOLATE_BILINEAR)
-	var error = image.save_png("user://%s/%04d.png" % [_directory_name, _file_counter])
+	var directory_name = "screenshots" if data[2] else _directory_name
+	var file_name = "%s.png" % get_date_time_string() if data[2] else "%04d.png" % _file_counter
+	var file_path = "user://%s/%s" % [directory_name, file_name]
+	var error = image.save_png(file_path)
 	if error != OK:
-		printerr("ScreenshotMgr: error while saving image %d" % error)
+		printerr("ScreenshotMgr: error while saving image to '%s' %d" % [file_path, error])
 	_threads.erase(data[1])

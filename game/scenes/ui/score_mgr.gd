@@ -31,9 +31,7 @@ func _on_item_collected():
 	_items_collected_count += 1
 	_update_label()
 	if _items_collected_count == _total_number_of_items:
-		print("ScoreMgr: level completed!")
 		emit_signal("level_completed")
-		LevelMgr.advance_to_next_level()
 
 
 func get_items_collected_percentage() -> float:

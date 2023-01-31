@@ -23,7 +23,6 @@ func _register_service():
 	ServiceMgr.register_service(get_script(), self)
 
 
-
 func get_number_of_items_async(callback: FuncRef) -> void:
 	if _items:
 		callback.call_func(_items.get_child_count())

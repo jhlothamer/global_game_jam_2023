@@ -13,7 +13,8 @@ anchor_bottom = 1.0
 theme = ExtResource( 5 )
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_lock_": true
+"_edit_lock_": true,
+"_edit_vertical_guides_": [ -87.0 ]
 }
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
@@ -26,11 +27,12 @@ custom_constants/margin_left = 10
 
 [node name="TitleLbl" type="Label" parent="TitleMarginContainer"]
 margin_left = 10.0
-margin_top = 22.0
+margin_top = 10.0
 margin_right = 512.0
-margin_bottom = 85.0
+margin_bottom = 139.0
 theme = ExtResource( 3 )
-text = "Game Title"
+text = "Boppy Bunny's
+Rootin' Adventure"
 autowrap = true
 __meta__ = {
 "_edit_lock_": true
@@ -59,27 +61,29 @@ __meta__ = {
 }
 
 [node name="NewGameBtn" parent="ButtonsMarginContainer/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 50.0
 margin_right = 184.0
-margin_bottom = 46.0
+margin_bottom = 96.0
 text = "New Game"
 scene_to_load = "res://scenes/etc/how_to_play.tscn"
 grab_focus_on_start = true
 
 [node name="SettingsBtn" parent="ButtonsMarginContainer/VBoxContainer" instance=ExtResource( 4 )]
-margin_top = 50.0
+margin_top = 100.0
 margin_right = 184.0
-margin_bottom = 96.0
+margin_bottom = 146.0
 text = "Settings"
 scene_to_load = "res://scenes/etc/settings.tscn"
 
 [node name="CreditsBtn" parent="ButtonsMarginContainer/VBoxContainer" instance=ExtResource( 4 )]
-margin_top = 100.0
+margin_top = 150.0
 margin_right = 184.0
-margin_bottom = 146.0
+margin_bottom = 196.0
 text = "Credits"
 scene_to_load = "res://scenes/etc/credits.tscn"
 
 [node name="ExitBtn" type="Button" parent="ButtonsMarginContainer/VBoxContainer"]
+visible = false
 margin_top = 150.0
 margin_right = 184.0
 margin_bottom = 196.0

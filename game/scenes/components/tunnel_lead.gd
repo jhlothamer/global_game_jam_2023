@@ -87,9 +87,7 @@ func _physics_process(delta):
 	_a_star.set_point_position(_a_star.get_point_count() - 1, pos)
 	
 	if _collided_or_out_of_bounds():
-		print("TunnelLead: level over!")
 		emit_signal("level_over")
-		LevelMgr.reload_current_level()
 		set_physics_process(false)
 
 

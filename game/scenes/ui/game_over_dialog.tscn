@@ -29,22 +29,22 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 396.0
-margin_bottom = 87.0
+margin_bottom = 63.0
 theme = ExtResource( 1 )
 text = "Game Over"
 align = 1
 
 [node name="RetryBtn" parent="VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 91.0
+margin_top = 67.0
 margin_right = 396.0
-margin_bottom = 155.0
+margin_bottom = 113.0
 text = "Retry"
 align = 1
 
 [node name="MainMenuBtn" parent="VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 159.0
+margin_top = 117.0
 margin_right = 396.0
-margin_bottom = 223.0
+margin_bottom = 163.0
 text = "Main Menu"
 align = 1
 scene_to_load = "res://scenes/etc/title.tscn"
