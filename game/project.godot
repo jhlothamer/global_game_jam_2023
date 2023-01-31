@@ -75,6 +75,11 @@ _global_script_classes=[ {
 "path": "res://addons/godot_helper_pack/core/util/file_util.gd"
 }, {
 "base": "Object",
+"class": "GameConsts",
+"language": "GDScript",
+"path": "res://game_consts.gd"
+}, {
+"base": "Object",
 "class": "GodotHelperPackSettings",
 "language": "GDScript",
 "path": "res://addons/godot_helper_pack/godot_helper_pack_settings.gd"
@@ -123,6 +128,11 @@ _global_script_classes=[ {
 "class": "InputSettingsCategoryReader",
 "language": "GDScript",
 "path": "res://utils/input_map/input_settings_category_reader.gd"
+}, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://scenes/levels/level_base.gd"
 }, {
 "base": "Node",
 "class": "Mover2D",
@@ -183,6 +193,11 @@ _global_script_classes=[ {
 "class": "SceneSoundTrack",
 "language": "GDScript",
 "path": "res://addons/godot_helper_pack/core/audio/scene_sound_track.gd"
+}, {
+"base": "Label",
+"class": "ScoreMgr",
+"language": "GDScript",
+"path": "res://scenes/ui/score_mgr.gd"
 }, {
 "base": "Node",
 "class": "ShakeIt",
@@ -268,6 +283,7 @@ _global_script_class_icons={
 "DistributionEditorPlugin": "",
 "EnumUtil": "",
 "FileUtil": "",
+"GameConsts": "",
 "GodotHelperPackSettings": "",
 "InputEventDisplayNameUtil": "",
 "InputEventUtil": "",
@@ -278,6 +294,7 @@ _global_script_class_icons={
 "InputSettingsActionWrapper": "",
 "InputSettingsCategory": "",
 "InputSettingsCategoryReader": "",
+"Level": "",
 "Mover2D": "",
 "MultiMeshInstanceDistributionArea": "",
 "NodeUtil": "",
@@ -290,6 +307,7 @@ _global_script_class_icons={
 "Rect2Util": "",
 "RotateIt": "",
 "SceneSoundTrack": "",
+"ScoreMgr": "",
 "ShakeIt": "",
 "Shape2DUtil": "",
 "ShapeDraw2D": "",
@@ -322,6 +340,7 @@ Globals="*res://addons/godot_helper_pack/core/globals.gd"
 SignalMgr="*res://addons/godot_helper_pack/core/signal_mgr.gd"
 ServiceMgr="*res://addons/godot_helper_pack/core/service_mgr.gd"
 GlobalBlockingColorChangeMonitor="*res://addons/godot_helper_pack/core/2d/shape/global_blocking_color_monitor.tscn"
+LevelMgr="*res://scenes/levels/level_mgr.gd"
 
 [debug]
 

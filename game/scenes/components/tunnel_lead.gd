@@ -1,18 +1,21 @@
 extends Node2D
 
-signal game_over()
+signal level_over()
 
 export var speed := 1.5
 export var line_2d:NodePath
 export var turn_speed := 180.0
-
+export var initial_direction := Vector2.RIGHT
+export var out_of_bounds_ref_rect:NodePath
 
 onready var _line_2d:Line2D = get_node(line_2d)
+onready var _out_of_bounds_ref_rect:ReferenceRect = get_node(out_of_bounds_ref_rect)
 onready var _turn_speed := deg2rad(turn_speed)
 
 
 var _direction := Vector2.RIGHT
 var _a_star := AStar2D.new()
+var _out_of_bounds_rect := Rect2(Vector2.ZERO, Vector2.INF)
 
 
 func _ready():
@@ -20,11 +23,22 @@ func _ready():
 		printerr("TunnelLead: no line 2d set.")
 		set_physics_process(false)
 		return
+	if !_out_of_bounds_ref_rect:
+		printerr("TunnelLead: no out of bounds ref rect set.")
+		set_physics_process(false)
+		return
+
+	_direction = initial_direction.normalized()
+
 	_line_2d.points = PoolVector2Array([position, position])
+
 	_a_star.add_point(0, position)
 	_a_star.add_point(1, position)
 	_a_star.connect_points(0, 1)
-	SignalMgr.register_publisher(self, "game_over")
+	
+	_out_of_bounds_rect = Rect2(_out_of_bounds_ref_rect.rect_position, _out_of_bounds_ref_rect.rect_size)
+
+	SignalMgr.register_publisher(self, "level_over")
 
 
 func _get_input_direction() -> Vector2:
@@ -34,8 +48,11 @@ func _get_input_direction() -> Vector2:
 	return v
 
 
-func _collided_with_path() -> bool:
+func _collided_or_out_of_bounds() -> bool:
 	var test_pt = _direction * _line_2d.width/2.0 + position
+	
+	if !_out_of_bounds_rect.has_point(test_pt):
+		return true
 	
 	var closest_pt = _a_star.get_closest_position_in_segment(test_pt)
 	var last_pt = _a_star.get_point_position(_a_star.get_point_count() - 1)
@@ -45,7 +62,6 @@ func _collided_with_path() -> bool:
 
 
 func _physics_process(delta):
-	var turn_change := 0.0
 	
 	var input_dir = _get_input_direction()
 	
@@ -70,8 +86,10 @@ func _physics_process(delta):
 	_line_2d.points = points
 	_a_star.set_point_position(_a_star.get_point_count() - 1, pos)
 	
-	if _collided_with_path():
-		emit_signal("game_over")
+	if _collided_or_out_of_bounds():
+		print("TunnelLead: level over!")
+		emit_signal("level_over")
+		LevelMgr.reload_current_level()
 		set_physics_process(false)
 
 

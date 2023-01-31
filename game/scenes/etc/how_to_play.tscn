@@ -28,11 +28,11 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 40.0
 margin_top = 20.0
-margin_right = 984.0
-margin_bottom = 580.0
+margin_right = 479.0
+margin_bottom = 364.0
 
 [node name="HowToPlayLbl" type="Label" parent="MarginContainer/VBoxContainer"]
-margin_right = 944.0
+margin_right = 439.0
 margin_bottom = 87.0
 theme = ExtResource( 2 )
 text = "How To Play"
@@ -41,16 +41,16 @@ text = "How To Play"
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 91.0
-margin_right = 944.0
-margin_bottom = 492.0
+margin_right = 439.0
+margin_bottom = 276.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 file_path = "res://assets/data/how_to_play.txt"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 496.0
-margin_right = 944.0
-margin_bottom = 560.0
+margin_top = 280.0
+margin_right = 439.0
+margin_bottom = 344.0
 alignment = 1
 
 [node name="BackBtn" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
@@ -61,14 +61,14 @@ scene_to_load = "res://scenes/etc/title.tscn"
 
 [node name="SpacerControl" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 131.0
-margin_right = 827.0
+margin_right = 322.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 
 [node name="PlayBtn" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
-margin_left = 831.0
-margin_right = 944.0
+margin_left = 326.0
+margin_right = 439.0
 margin_bottom = 64.0
 text = "Play"
-scene_to_load = "res://scenes/etc/title.tscn"
+scene_to_load = "res://scenes/levels/level_01.tscn"
 grab_focus_on_start = true

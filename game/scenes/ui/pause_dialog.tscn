@@ -35,21 +35,21 @@ align = 1
 [node name="ResumeBtn" type="Button" parent="VBoxContainer"]
 margin_top = 91.0
 margin_right = 277.0
-margin_bottom = 155.0
+margin_bottom = 137.0
 text = "Resume"
 flat = true
 
 [node name="Settingsbtn" type="Button" parent="VBoxContainer"]
-margin_top = 159.0
+margin_top = 141.0
 margin_right = 277.0
-margin_bottom = 223.0
+margin_bottom = 187.0
 text = "Settings"
 flat = true
 
 [node name="MainMenuBtn" parent="VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 227.0
+margin_top = 191.0
 margin_right = 277.0
-margin_bottom = 291.0
+margin_bottom = 237.0
 text = "Main Menu"
 align = 1
 scene_to_load = "res://scenes/etc/title.tscn"
