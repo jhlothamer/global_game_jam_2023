@@ -16,6 +16,7 @@ func _ready():
 	hide()
 	SignalMgr.register_subscriber(self, "level_over", "_on_level_completed")
 	SignalMgr.register_subscriber(self, "level_completed")
+	SignalMgr.register_subscriber(self, "obstacle_hit", "_on_level_completed")
 
 
 func _on_level_completed():
@@ -34,7 +35,8 @@ func _on_level_completed():
 	
 	_can_continue = percent_complete >= .25
 	if !_can_continue:
-		_continue_btn.text = "Retry"
+		_continue_btn.text = "Replay Level"
+		_results_lbl.text = "Collect more veggies to continue!"
 
 func _on_ContinueBtn_pressed():
 	if _can_continue:

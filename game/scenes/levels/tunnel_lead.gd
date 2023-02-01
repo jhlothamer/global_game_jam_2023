@@ -1,3 +1,4 @@
+class_name TunnelLead
 extends Node2D
 
 signal level_over()
@@ -7,6 +8,10 @@ export var line_2d:NodePath
 export var turn_speed := 180.0
 export var initial_direction := Vector2.RIGHT
 export var out_of_bounds_ref_rect:NodePath
+
+
+var direction_queue := []
+
 
 onready var _line_2d:Line2D = get_node(line_2d)
 onready var _out_of_bounds_ref_rect:ReferenceRect = get_node(out_of_bounds_ref_rect)
@@ -80,6 +85,7 @@ func _physics_process(delta):
 		_direction = _direction.rotated(change_angle - dir_angle)
 	
 	position += _direction * speed
+	direction_queue.push_back(_direction)
 	var pos = position
 	var points = _line_2d.points
 	points.set(_line_2d.points.size() - 1, pos)
