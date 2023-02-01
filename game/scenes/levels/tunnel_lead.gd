@@ -16,6 +16,8 @@ var direction_queue := []
 onready var _line_2d:Line2D = get_node(line_2d)
 onready var _out_of_bounds_ref_rect:ReferenceRect = get_node(out_of_bounds_ref_rect)
 onready var _turn_speed := deg2rad(turn_speed)
+onready var _anim_sprite: AnimatedSprite = $AnimatedSprite
+onready var _tween: Tween = $Tween
 
 
 var _direction := Vector2.RIGHT
@@ -34,6 +36,8 @@ func _ready():
 		return
 
 	_direction = initial_direction.normalized()
+	_anim_sprite.rotation = _direction.angle()
+	_flip_bunny()
 
 	_line_2d.points = PoolVector2Array([position, position])
 
@@ -66,6 +70,22 @@ func _collided_or_out_of_bounds() -> bool:
 
 
 
+func _flip_bunny() -> void:
+#	_anim_sprite.flip_v = _direction.x < 0
+	if is_zero_approx(_direction.x):
+		return
+	var scale_y = -1.0 if _direction.x < 0 else 1.0
+	if sign(scale_y) == sign(_anim_sprite.scale.y):
+		return
+	if _tween.is_active():
+		_tween.stop_all()
+	var target_scale = Vector2(1, scale_y)
+	_tween.interpolate_property(_anim_sprite, "scale", _anim_sprite.scale, target_scale, .2)
+	_tween.start()
+	
+
+
+
 func _physics_process(delta):
 	
 	var input_dir = _get_input_direction()
@@ -83,6 +103,8 @@ func _physics_process(delta):
 		var delta_angle = _turn_speed * delta
 		change_angle = clamp(change_angle, dir_angle - delta_angle, dir_angle + delta_angle)
 		_direction = _direction.rotated(change_angle - dir_angle)
+		_anim_sprite.rotation = _direction.angle()
+		_flip_bunny()
 	
 	position += _direction * speed
 	direction_queue.push_back(_direction)
@@ -95,6 +117,4 @@ func _physics_process(delta):
 	if _collided_or_out_of_bounds():
 		emit_signal("level_over")
 		set_physics_process(false)
-
-
 

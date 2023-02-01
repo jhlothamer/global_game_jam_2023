@@ -259,7 +259,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/components/transition_button/transition_button.gd"
 }, {
-"base": "Reference",
+"base": "Node2D",
 "class": "TunnelLead",
 "language": "GDScript",
 "path": "res://scenes/levels/tunnel_lead.gd"
@@ -347,6 +347,7 @@ SignalMgr="*res://addons/godot_helper_pack/core/signal_mgr.gd"
 ServiceMgr="*res://addons/godot_helper_pack/core/service_mgr.gd"
 GlobalBlockingColorChangeMonitor="*res://addons/godot_helper_pack/core/2d/shape/global_blocking_color_monitor.tscn"
 LevelMgr="*res://scenes/levels/level_mgr.gd"
+GameInit="*res://utils/game_init.gd"
 
 [debug]
 
