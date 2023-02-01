@@ -6,9 +6,7 @@
 [node name="MovingObstacle" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 speed = 10.0
+oob_reflection_max = 60.0
 
 [node name="Circle2D" parent="." index="0"]
 color = Color( 1, 0.796078, 0, 1 )
-
-[node name="Area2D" parent="." index="1"]
-visible = true

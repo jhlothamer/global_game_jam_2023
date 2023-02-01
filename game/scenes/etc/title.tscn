@@ -39,7 +39,7 @@ custom_constants/margin_left = 10
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 512.0
-margin_bottom = 176.0
+margin_bottom = 177.0
 
 [node name="TitleLbl" type="Label" parent="TitleMarginContainer/VBoxContainer"]
 margin_right = 502.0
@@ -57,11 +57,25 @@ __meta__ = {
 [node name="TitleLbl2" type="Label" parent="TitleMarginContainer/VBoxContainer"]
 margin_top = 33.0
 margin_right = 502.0
-margin_bottom = 166.0
+margin_bottom = 98.0
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 1, 0.498039, 0.164706, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "Rootin' Adventure"
+text = "Rootin'"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TitleLbl3" type="Label" parent="TitleMarginContainer/VBoxContainer"]
+margin_top = 102.0
+margin_right = 502.0
+margin_bottom = 167.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 0.498039, 0.164706, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Adventure"
 align = 1
 autowrap = true
 __meta__ = {
@@ -69,27 +83,28 @@ __meta__ = {
 }
 
 [node name="ButtonsMarginContainer" type="MarginContainer" parent="."]
-anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -191.0
-margin_top = -191.0
+margin_left = 6.0
+margin_top = -77.0
+margin_right = -2.0
+grow_horizontal = 0
+grow_vertical = 2
 custom_constants/margin_right = 20
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
 custom_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ButtonsMarginContainer"]
-margin_left = 20.0
+[node name="VBoxContainer" type="HBoxContainer" parent="ButtonsMarginContainer"]
+margin_left = 32.0
 margin_top = 20.0
-margin_right = 171.0
-margin_bottom = 171.0
+margin_right = 472.0
+margin_bottom = 57.0
+grow_horizontal = 2
+size_flags_horizontal = 6
 custom_constants/separation = 20
 alignment = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="NewGameBtn" parent="ButtonsMarginContainer/VBoxContainer" instance=ExtResource( 4 )]
 margin_right = 151.0
@@ -99,26 +114,25 @@ scene_to_load = "res://scenes/etc/how_to_play.tscn"
 grab_focus_on_start = true
 
 [node name="SettingsBtn" parent="ButtonsMarginContainer/VBoxContainer" instance=ExtResource( 4 )]
-margin_top = 57.0
-margin_right = 151.0
-margin_bottom = 94.0
+margin_left = 171.0
+margin_right = 304.0
+margin_bottom = 37.0
 text = "Settings"
 scene_to_load = "res://scenes/etc/settings.tscn"
 
 [node name="CreditsBtn" parent="ButtonsMarginContainer/VBoxContainer" instance=ExtResource( 4 )]
-margin_top = 114.0
-margin_right = 151.0
-margin_bottom = 151.0
+margin_left = 324.0
+margin_right = 440.0
+margin_bottom = 37.0
 text = "Credits"
 scene_to_load = "res://scenes/etc/credits.tscn"
 
 [node name="ExitBtn" type="Button" parent="ButtonsMarginContainer/VBoxContainer"]
 visible = false
-margin_top = 150.0
-margin_right = 184.0
-margin_bottom = 196.0
+margin_left = 460.0
+margin_right = 528.0
+margin_bottom = 37.0
 text = "Exit"
-flat = true
 align = 0
 
 [connection signal="pressed" from="ButtonsMarginContainer/VBoxContainer/ExitBtn" to="." method="_on_ExitBtn_pressed"]
