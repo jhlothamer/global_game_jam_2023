@@ -40,6 +40,5 @@ func _ready():
 
 func _on_Area2D_area_entered(area: Area2D):
 	if area.is_in_group("player"):
-		print("item collected")
 		emit_signal("item_collected")
 		queue_free()

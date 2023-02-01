@@ -1,11 +1,19 @@
 extends Control
 
 onready var _play_btn: Button = $VBoxContainer/CenterContainer/PlayBtn
+onready var _instruct_lbl: RichTextLabel = $VBoxContainer/MarginContainer/InstructionsLabel
+
+
 
 func _ready():
 	get_tree().paused = true
 	show()
 	_play_btn.grab_focus()
+	var lvl: Level = ServiceMgr.get_service(Level)
+	if !lvl:
+		printerr("LevelIntroDialog: could not get level service")
+		return
+	_instruct_lbl.bbcode_text = lvl.intro_message_bbs
 
 
 func _on_PlayBtn_pressed():

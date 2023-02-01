@@ -5,6 +5,7 @@
 [ext_resource path="res://scenes/environment/item.tscn" type="PackedScene" id=3]
 
 [node name="Level03" instance=ExtResource( 1 )]
+intro_message_bbs = "[center]Avoid the beetles!  They are meanies![/center]"
 
 [node name="Item" parent="Items" index="0" instance=ExtResource( 3 )]
 position = Vector2( 120, 104 )

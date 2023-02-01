@@ -67,6 +67,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 text = "How To Play"
+align = 1
 
 [node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer"]
 margin_top = 57.0
@@ -123,7 +124,7 @@ end_cap_mode = 2
 [node name="AnimatedSprite" type="AnimatedSprite" parent="GuideLabel/TunnelLine2D"]
 position = Vector2( 128, 0 )
 frames = SubResource( 5 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Item" parent="GuideLabel/TunnelLine2D" instance=ExtResource( 3 )]
@@ -164,6 +165,7 @@ end_cap_mode = 2
 position = Vector2( 16, 31 )
 rotation = 1.57079
 frames = SubResource( 5 )
+frame = 2
 playing = true
 flip_h = true
 
@@ -181,6 +183,7 @@ end_cap_mode = 2
 visible = false
 position = Vector2( 128, 0 )
 frames = SubResource( 5 )
+frame = 2
 playing = true
 
 [node name="Line2D" type="Line2D" parent="CollideLabel/TunnelLine2D"]

@@ -10,6 +10,5 @@ func _ready():
 
 func _on_Area2D_area_entered(area: Area2D):
 	if area.is_in_group("player"):
-		print("obstacle hit")
 		emit_signal("obstacle_hit")
 

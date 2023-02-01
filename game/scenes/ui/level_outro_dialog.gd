@@ -6,8 +6,8 @@ onready var _score_carrots := [
 	$VBoxContainer/HBoxContainer/ScoreCarrot2,
 	$VBoxContainer/HBoxContainer/ScoreCarrot3,
 ]
-onready var _results_lbl: Label = $VBoxContainer/ResultsLabel
-onready var _continue_btn: Button = $VBoxContainer/ContinueBtn
+onready var _results_lbl: Label = $VBoxContainer/MarginContainer/ResultsLabel
+onready var _continue_btn: Button = $VBoxContainer/HBoxContainer2/VBoxContainer/ContinueBtn
 
 
 var _can_continue := false
@@ -27,17 +27,26 @@ func _on_level_completed():
 	get_tree().paused = true
 	_continue_btn.grab_focus()
 	
+	
+	var message = "Good Job!"
+	# got 2 carrots
 	if percent_complete < 1.0:
 		_score_carrots[2].modulate = Color.black
+		message = "Not bad!"
+	# got 1 carrot
 	if percent_complete < .5:
 		_score_carrots[1].modulate = Color.black
+		message = "You did it!"
+	# got 0 carrots
 	if percent_complete < .25:
+		message = "Collect more veggies to continue."
 		_score_carrots[0].modulate = Color.black
+
+	_results_lbl.text = message
 	
 	_can_continue = percent_complete >= .25
 	if !_can_continue:
 		_continue_btn.text = "Replay Level"
-		_results_lbl.text = "Collect more veggies to continue!"
 
 func _on_ContinueBtn_pressed():
 	if _can_continue:
