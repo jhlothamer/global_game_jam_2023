@@ -8,6 +8,7 @@ export var line_2d:NodePath
 export var turn_speed := 180.0
 export var initial_direction := Vector2.RIGHT
 export var out_of_bounds_ref_rect:NodePath
+export var do_flip := false
 
 
 var direction_queue := []
@@ -71,7 +72,8 @@ func _collided_or_out_of_bounds() -> bool:
 
 
 func _flip_bunny() -> void:
-#	_anim_sprite.flip_v = _direction.x < 0
+	if !do_flip:
+		return
 	if is_zero_approx(_direction.x):
 		return
 	var scale_y = -1.0 if _direction.x < 0 else 1.0

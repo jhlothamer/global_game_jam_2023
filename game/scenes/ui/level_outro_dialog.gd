@@ -25,6 +25,7 @@ func _on_level_completed():
 
 	show()
 	get_tree().paused = true
+	_continue_btn.grab_focus()
 	
 	if percent_complete < 1.0:
 		_score_carrots[2].modulate = Color.black
