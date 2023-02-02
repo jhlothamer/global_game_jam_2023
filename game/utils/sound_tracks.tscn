@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/godot_helper_pack/core/audio/scene_sound_track.gd" type="Script" id=1]
+[ext_resource path="res://addons/godot_helper_pack/core/audio/sound_track_mgr.gd" type="Script" id=2]
+[ext_resource path="res://assets/music/bbunny_mx_level_01_museric.mp3" type="AudioStream" id=3]
+
+[node name="SoundTracks" type="Node"]
+pause_mode = 2
+
+[node name="SoundTrackMgr" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="SceneSoundTrack" type="Node" parent="SoundTrackMgr"]
+script = ExtResource( 1 )
+scenes = [ "res://scenes/etc/title.tscn", "res://scenes/etc/how_to_play.tscn", "res://scenes/etc/credits.tscn", "res://scenes/levels/level_01.tscn", "res://scenes/levels/level_02.tscn", "res://scenes/levels/level_03.tscn", "res://scenes/etc/settings.tscn" ]
+startup = true
+
+[node name="BbunnyMxLevel01" type="AudioStreamPlayer" parent="SoundTrackMgr/SceneSoundTrack"]
+stream = ExtResource( 3 )
+bus = "Music"

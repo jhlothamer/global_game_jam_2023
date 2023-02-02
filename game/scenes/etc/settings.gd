@@ -26,5 +26,6 @@ func save() -> bool:
 
 
 func _on_SettingsUI_help_message_changed(message: String) -> void:
-	_help_msg_lbl.bbcode_text = "[center]%s[/center]" % message
+	pass
+	#_help_msg_lbl.bbcode_text = "[center]%s[/center]" % message
 

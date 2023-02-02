@@ -348,6 +348,7 @@ ServiceMgr="*res://addons/godot_helper_pack/core/service_mgr.gd"
 GlobalBlockingColorChangeMonitor="*res://addons/godot_helper_pack/core/2d/shape/global_blocking_color_monitor.tscn"
 LevelMgr="*res://scenes/levels/level_mgr.gd"
 GameInit="*res://utils/game_init.gd"
+SoundTracks="*res://utils/sound_tracks.tscn"
 
 [debug]
 

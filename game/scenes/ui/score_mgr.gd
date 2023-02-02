@@ -5,6 +5,9 @@ extends Label
 signal level_completed()
 
 
+onready var _item_collected_sound: AudioStreamPlayer = $BBunnySfxPowerUp
+
+
 var _items_collected_count := 0
 var _total_number_of_items := 0
 
@@ -30,7 +33,10 @@ func _update_label() -> void:
 func _on_item_collected():
 	_items_collected_count += 1
 	_update_label()
+	_item_collected_sound.play(.1)
 	if _items_collected_count == _total_number_of_items:
+#		if _item_collected_sound.playing:
+#			yield(_item_collected_sound, "finished")
 		emit_signal("level_completed")
 
 

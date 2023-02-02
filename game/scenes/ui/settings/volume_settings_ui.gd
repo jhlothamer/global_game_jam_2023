@@ -1,9 +1,9 @@
 extends VBoxContainer
 
 onready var _bus_controls := {
-	"Master": [$HBoxContainer/GridContainer/MasterVolumeLabel, $HBoxContainer/GridContainer/MasterVolumeHSlider],
-	"Music": [$HBoxContainer/GridContainer/MusicVolumeLabel, $HBoxContainer/GridContainer/MusicVolumeHSlider],
-	"SoundFx": [$HBoxContainer/GridContainer/SoundFxVolumeLabel, $HBoxContainer/GridContainer/SoundFxVolumeHSlider],
+	"Master": [$MarginContainer/GridContainer/MasterVolumeLabel, $MarginContainer/GridContainer/MasterVolumeHSlider],
+	"Music": [$MarginContainer/GridContainer/MusicVolumeLabel, $MarginContainer/GridContainer/MusicVolumeHSlider],
+	"SoundFx": [$MarginContainer/GridContainer/SoundFxVolumeLabel, $MarginContainer/GridContainer/SoundFxVolumeHSlider],
 }
 onready var _update_volume_sound: AudioStreamPlayer = $UpdateVolumeSound
 

@@ -13,25 +13,25 @@ custom_constants/separation = 0
 script = ExtResource( 2 )
 
 [node name="TabContainer" type="HBoxContainer" parent="."]
-margin_right = 1024.0
-margin_bottom = 68.0
+margin_right = 512.0
+margin_bottom = 50.0
 
 [node name="Tabs" type="Tabs" parent="TabContainer"]
-margin_right = 1024.0
-margin_bottom = 68.0
+margin_right = 512.0
+margin_bottom = 50.0
 size_flags_horizontal = 3
 
 [node name="TabPanelContainer" type="PanelContainer" parent="."]
-margin_top = 68.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_top = 50.0
+margin_right = 512.0
+margin_bottom = 384.0
 size_flags_vertical = 3
 
 [node name="Volume" type="Panel" parent="TabPanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1017.0
-margin_bottom = 525.0
+margin_right = 505.0
+margin_bottom = 327.0
 
 [node name="MarginContainer" type="MarginContainer" parent="TabPanelContainer/Volume"]
 anchor_right = 1.0
@@ -46,8 +46,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 990.0
-margin_bottom = 498.0
+margin_right = 478.0
+margin_bottom = 300.0
 
 [node name="Controls" type="Panel" parent="TabPanelContainer"]
 visible = false

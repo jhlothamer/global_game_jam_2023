@@ -88,12 +88,14 @@ custom_constants/separation = 20
 [node name="ContinueBtn" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 margin_right = 158.0
 margin_bottom = 37.0
+focus_mode = 1
 text = "Continue"
 
 [node name="MainMenuBtn" parent="VBoxContainer/HBoxContainer2/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 57.0
 margin_right = 158.0
 margin_bottom = 94.0
+focus_mode = 1
 text = "Main Menu"
 align = 1
 scene_to_load = "res://scenes/etc/title.tscn"
