@@ -1,7 +1,6 @@
 class_name Level
 extends Node2D
 
-export (int, 1, 3) var number_of_starts_to_continue := 1
 export (String, MULTILINE) var intro_message_bbs := "[center]Good Luck![/center]"
 
 onready var _items:Node2D = $Items

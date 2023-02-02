@@ -19,6 +19,7 @@ onready var _out_of_bounds_ref_rect:ReferenceRect = get_node(out_of_bounds_ref_r
 onready var _turn_speed := deg2rad(turn_speed)
 onready var _anim_sprite: AnimatedSprite = $AnimatedSprite
 onready var _tween: Tween = $Tween
+onready var _dig_particles: CPUParticles2D = $AnimatedSprite/CPUParticles2D
 
 
 var _direction := Vector2.RIGHT
@@ -40,6 +41,10 @@ func _ready():
 		set_physics_process(false)
 		return
 
+	SignalMgr.register_subscriber(self, "level_start")
+	SignalMgr.register_publisher(self, "level_over")
+	SignalMgr.register_subscriber(self, "level_stop")
+
 	_direction = initial_direction.normalized()
 	_anim_sprite.rotation = _direction.angle()
 	_flip_bunny()
@@ -52,7 +57,6 @@ func _ready():
 	
 	_out_of_bounds_rect = Rect2(_out_of_bounds_ref_rect.rect_position, _out_of_bounds_ref_rect.rect_size)
 
-	SignalMgr.register_publisher(self, "level_over")
 
 
 func _get_input_direction() -> Vector2:
@@ -88,8 +92,14 @@ func _flip_bunny() -> void:
 	var target_scale = Vector2(1, scale_y)
 	_tween.interpolate_property(_anim_sprite, "scale", _anim_sprite.scale, target_scale, .2)
 	_tween.start()
-	
 
+
+func _on_level_start():
+	_dig_particles.emitting = true
+
+
+func _on_level_stop():
+	_dig_particles.emitting = false
 
 
 func _physics_process(delta):

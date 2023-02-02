@@ -1,5 +1,6 @@
 extends Control
 
+signal level_stop()
 
 onready var _score_carrots := [
 	$VBoxContainer/HBoxContainer/ScoreCarrot1,
@@ -18,12 +19,15 @@ func _ready():
 	SignalMgr.register_subscriber(self, "level_over", "_on_level_completed")
 	SignalMgr.register_subscriber(self, "level_completed")
 	SignalMgr.register_subscriber(self, "obstacle_hit", "_on_level_completed")
+	SignalMgr.register_publisher(self, "level_stop")
 
 
 func _on_level_completed():
 	var score_mgr: ScoreMgr = ServiceMgr.get_service(ScoreMgr)
 	var percent_complete = score_mgr.get_items_collected_percentage()
 
+	emit_signal("level_stop")
+	
 	show()
 	get_tree().paused = true
 	

@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/levels/tunnel_lead.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/Rabbit/rabbit_run_ilikethepixies.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/Dirt/dirt02_texture_ilikethepixies1.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/Dirt/tunnel_ilikethepixies2.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/temp/dirt_particle_lighter.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
@@ -26,6 +29,13 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 1 ), 0.0, -0.857143, 0, 1, Vector2( 1, 0.142857 ), -1.90408, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0.0010846, 0.863341, 0.976139 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.864294, 1, 1, 1, 0 )
+
 [node name="TunnelLead" type="Node2D"]
 position = Vector2( 0, 174 )
 script = ExtResource( 1 )
@@ -37,7 +47,37 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-frame = 2
+frame = 1
 playing = true
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="AnimatedSprite"]
+pause_mode = 2
+modulate = Color( 0.682353, 0.682353, 0.682353, 1 )
+position = Vector2( 16, 0 )
+emitting = false
+amount = 6
+lifetime = 0.4
+explosiveness = 0.86
+texture = ExtResource( 5 )
+direction = Vector2( -1, 0 )
+spread = 90.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+angular_velocity = 138.0
+angular_velocity_random = 0.79
+angle = 207.0
+angle_random = 0.91
+scale_amount_curve = SubResource( 7 )
+color_ramp = SubResource( 6 )
+
 [node name="Tween" type="Tween" parent="."]
+
+[node name="TunnelIlikethepixies2" type="Sprite" parent="."]
+visible = false
+position = Vector2( -30, -41 )
+texture = ExtResource( 4 )
+
+[node name="Dirt02TextureIlikethepixies1" type="Sprite" parent="."]
+visible = false
+position = Vector2( 69, -49 )
+texture = ExtResource( 3 )
