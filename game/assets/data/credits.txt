@@ -1,5 +1,3 @@
-update res://assets/data/credits.txt
-
 Art:
 "FREE Keyboard and controllers prompts pack" by xelu (https://opengameart.org/content/free-keyboard-and-controllers-prompts-pack) 
 licensed under CC0 1.0 (http://creativecommons.org/publicdomain/zero/1.0/)
@@ -13,4 +11,9 @@ Fonts:
 https://fontlibrary.org/en/font/jellee-typeface
 by Alfredo Marco Pradil
 License: OFL (SIL Open Font License) (http://scripts.sil.org/OFL)
+
+https://fontlibrary.org/en/font/guillermonkey
+by Guillermo Calvo
+License: GPLv3 (http://www.gnu.org/copyleft/gpl.html)
+note: a copy of this font is available for download from the above URL or this game's web page
 

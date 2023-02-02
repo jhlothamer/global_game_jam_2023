@@ -3,6 +3,6 @@
 [ext_resource path="res://assets/fonts/Guillermonkey.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 52
+size = 28
 use_filter = true
 font_data = ExtResource( 1 )

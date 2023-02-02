@@ -67,7 +67,7 @@ margin_bottom = 21.0
 custom_colors/default_color = Color( 0.945098, 1, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "[center]Intro text goes here![/center]"
-text = "Intro text goes here!"
+text = "[center]Intro text goes here![/center]"
 fit_content_height = true
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]

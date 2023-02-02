@@ -4,4 +4,6 @@
 
 [resource]
 default_font = ExtResource( 1 )
-Label/fonts/font = null
+Label/fonts/font = ExtResource( 1 )
+minor_title/base_type = "Label"
+minor_title/fonts/font = ExtResource( 1 )

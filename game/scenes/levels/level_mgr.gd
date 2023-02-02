@@ -13,7 +13,7 @@ func advance_to_next_level() -> void:
 	_current_level += 1
 	if _current_level >= _level_scenes.size():
 		_current_level = 0
-		TransitionMgr.transition_to(GameConsts.SCENE_TITLE)
+		TransitionMgr.transition_to(GameConsts.SCENE_THANKS4PLAYING)
 		return
 	
 	TransitionMgr.transition_to(_level_scenes[_current_level])

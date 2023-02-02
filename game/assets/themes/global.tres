@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=2]
+[gd_resource type="Theme" load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/text.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/fonts/buttons.tres" type="DynamicFont" id=2]
@@ -46,6 +46,43 @@ expand_margin_bottom = 6.0
 shadow_size = 3
 shadow_offset = Vector2( 3, 2 )
 
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.227451, 0.192157, 0.160784, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.45, 0.3804, 0.3195, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.18, 0.15216, 0.1278, 1 )
+border_width_left = 10
+border_width_right = 10
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.227451, 0.192157, 0.160784, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.45, 0.3804, 0.3195, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 3 )
+
 [resource]
 Button/colors/font_color = Color( 0.227451, 0.192157, 0.160784, 1 )
 Button/colors/font_color_focus = Color( 0.945098, 1, 0, 1 )
@@ -55,8 +92,22 @@ Button/styles/focus = SubResource( 3 )
 Button/styles/hover = SubResource( 3 )
 Button/styles/normal = SubResource( 2 )
 Label/colors/font_color = Color( 0.945098, 1, 0, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
 Label/fonts/font = ExtResource( 1 )
+Label/styles/normal = null
 RichTextLabel/colors/default_color = Color( 1, 1, 1, 1 )
 RichTextLabel/fonts/normal_font = ExtResource( 1 )
+TabContainer/colors/font_color_fg = Color( 0.945098, 1, 0, 1 )
+TabContainer/constants/hseparation = 40
+TabContainer/styles/panel = SubResource( 5 )
+TabContainer/styles/tab_bg = SubResource( 6 )
+TabContainer/styles/tab_fg = SubResource( 7 )
 Tabs/fonts/font = ExtResource( 2 )
 TextEdit/fonts/font = ExtResource( 1 )
+minor_button/base_type = "Button"
+minor_button/fonts/font = SubResource( 4 )

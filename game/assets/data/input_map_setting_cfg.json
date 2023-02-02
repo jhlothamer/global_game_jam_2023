@@ -1,6 +1,6 @@
 {
 	"settings_save_file_path": "user://input_map_settings.json",
-	"bindings_per_action": 3,
+	"bindings_per_action": 2,
 	"bindings_column_names": ["Primary", "Secondary", "Game Pad"],
 	"bindings_column_types": ["key|mouse", "key|mouse", "pad"],
 	"mouse_settings": {
