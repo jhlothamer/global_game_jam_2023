@@ -4,11 +4,11 @@ signal help_message_changed(message)
 
 const HELP_MESSAGE = "Use %%prompt:pad:previous_settings_tab%% or %%prompt:pad:next_settings_tab%% to switch tabs"
 
-onready var _tabs:Tabs = $TabContainer/Tabs
-onready var _tab_panels = $TabPanelContainer.get_children()
+#onready var _tabs:Tabs = $TabContainer/Tabs
+onready var _tab_panels = $TabContainer.get_children()
 onready var _settings_ui :=[
-	$TabPanelContainer/Volume/MarginContainer/VolumeSettingsUI,
-	$TabPanelContainer/Controls/ControlSettingsUI
+	$TabContainer/Volume/MarginContainer/VolumeSettingsUI,
+	$TabContainer/Controls/ControlSettingsUI
 ]
 
 
@@ -17,8 +17,8 @@ var _game_pad_device_id: int = -1
 
 func _ready():
 	_init_prev_next_tab()
-	for tab_panel in _tab_panels:
-		_tabs.add_tab(tab_panel.name)
+#	for tab_panel in _tab_panels:
+#		_tabs.add_tab(tab_panel.name)
 	_on_Tabs_tab_changed(0)
 
 
@@ -29,15 +29,15 @@ func _on_Tabs_tab_changed(tab: int) -> void:
 			var _discard = _set_focus(_tab_panels[i])
 
 
-func _on_PreviousTabBtn_pressed():
-		var tab = _tabs.current_tab - 1
-		if tab < 0:
-			tab = _tabs.get_tab_count() - 1
-		_tabs.current_tab = tab
-
-
-func _on_NextTabBtn_pressed():
-	_tabs.current_tab = (_tabs.current_tab + 1) % _tabs.get_tab_count()
+#func _on_PreviousTabBtn_pressed():
+#		var tab = _tabs.current_tab - 1
+#		if tab < 0:
+#			tab = _tabs.get_tab_count() - 1
+#		_tabs.current_tab = tab
+#
+#
+#func _on_NextTabBtn_pressed():
+#	_tabs.current_tab = (_tabs.current_tab + 1) % _tabs.get_tab_count()
 
 
 func _set_focus(ctrl: Control) -> bool:
@@ -54,11 +54,11 @@ func _set_focus(ctrl: Control) -> bool:
 	return false
 
 
-func _input(event):
-	if event.is_action_pressed("next_settings_tab") and _allow_prev_next_tab:
-		_on_NextTabBtn_pressed()
-	elif event.is_action_pressed("previous_settings_tab") and _allow_prev_next_tab:
-		_on_PreviousTabBtn_pressed()
+#func _input(event):
+#	if event.is_action_pressed("next_settings_tab") and _allow_prev_next_tab:
+#		_on_NextTabBtn_pressed()
+#	elif event.is_action_pressed("previous_settings_tab") and _allow_prev_next_tab:
+#		_on_PreviousTabBtn_pressed()
 
 
 
@@ -122,8 +122,8 @@ func _on_joy_connection_changed(device: int, connected: bool) -> void:
 	emit_signal("help_message_changed", InputPromptUtil.replace_input_prompts(HELP_MESSAGE, true))
 
 func re_init() -> void:
-	_tabs.current_tab = 0
-	_on_Tabs_tab_changed(0)
+#	_tabs.current_tab = 0
+#	_on_Tabs_tab_changed(0)
 	for settings in _settings_ui:
 		if settings.has_method("init"):
 			settings.init()

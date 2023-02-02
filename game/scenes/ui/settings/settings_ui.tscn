@@ -10,28 +10,22 @@ anchor_bottom = 1.0
 custom_constants/separation = 0
 script = ExtResource( 2 )
 
-[node name="TabContainer" type="HBoxContainer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="."]
 margin_right = 512.0
-margin_bottom = 24.0
-
-[node name="Tabs" type="Tabs" parent="TabContainer"]
-margin_right = 512.0
-margin_bottom = 24.0
+margin_bottom = 186.0
 size_flags_horizontal = 3
 
-[node name="TabPanelContainer" type="PanelContainer" parent="."]
-margin_top = 24.0
-margin_right = 512.0
-margin_bottom = 384.0
+[node name="Volume" type="Panel" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_min_size = Vector2( 0, 150 )
 size_flags_vertical = 3
 
-[node name="Volume" type="Panel" parent="TabPanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 505.0
-margin_bottom = 353.0
-
-[node name="MarginContainer" type="MarginContainer" parent="TabPanelContainer/Volume"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Volume"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 20
@@ -39,23 +33,30 @@ custom_constants/margin_top = 20
 custom_constants/margin_left = 20
 custom_constants/margin_bottom = 20
 
-[node name="VolumeSettingsUI" parent="TabPanelContainer/Volume/MarginContainer" instance=ExtResource( 3 )]
+[node name="VolumeSettingsUI" parent="TabContainer/Volume/MarginContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 478.0
-margin_bottom = 326.0
+margin_right = 484.0
+margin_bottom = 130.0
 
-[node name="Controls" type="Panel" parent="TabPanelContainer"]
+[node name="Controls" type="Panel" parent="TabContainer"]
 visible = false
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1017.0
-margin_bottom = 521.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = 146.0
+rect_min_size = Vector2( 0, 200 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="ControlSettingsUI" parent="TabPanelContainer/Controls" instance=ExtResource( 4 )]
+[node name="ControlSettingsUI" parent="TabContainer/Controls" instance=ExtResource( 4 )]
+margin_right = -104.0
+margin_bottom = -150.0
+rect_min_size = Vector2( 400, 200 )
 
-[connection signal="tab_changed" from="TabContainer/Tabs" to="." method="_on_Tabs_tab_changed"]
-[connection signal="remap_ended" from="TabPanelContainer/Controls/ControlSettingsUI" to="." method="_on_ControlSettings_remap_ended"]
-[connection signal="remap_started" from="TabPanelContainer/Controls/ControlSettingsUI" to="." method="_on_ControlSettings_remap_started"]
+[connection signal="remap_ended" from="TabContainer/Controls/ControlSettingsUI" to="." method="_on_ControlSettings_remap_ended"]
+[connection signal="remap_started" from="TabContainer/Controls/ControlSettingsUI" to="." method="_on_ControlSettings_remap_started"]

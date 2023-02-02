@@ -13,7 +13,7 @@ script = ExtResource( 2 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 512.0
-margin_bottom = 100.0
+margin_bottom = 88.0
 size_flags_horizontal = 3
 custom_constants/margin_right = 20
 custom_constants/margin_left = 50
@@ -21,19 +21,20 @@ custom_constants/margin_left = 50
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
 margin_left = 50.0
 margin_right = 492.0
-margin_bottom = 100.0
+margin_bottom = 88.0
 size_flags_horizontal = 3
 custom_constants/vseparation = 20
 custom_constants/hseparation = 20
 columns = 2
 
 [node name="MasterVolumeLabel" type="Label" parent="MarginContainer/GridContainer"]
-margin_right = 140.0
-margin_bottom = 20.0
+margin_top = 1.0
+margin_right = 83.0
+margin_bottom = 14.0
 text = "Master Volume"
 
 [node name="MasterVolumeHSlider" type="HSlider" parent="MarginContainer/GridContainer"]
-margin_left = 160.0
+margin_left = 103.0
 margin_right = 442.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
@@ -41,30 +42,30 @@ min_value = -80.0
 max_value = 6.0
 
 [node name="SoundFxVolumeLabel" type="Label" parent="MarginContainer/GridContainer"]
-margin_top = 40.0
-margin_right = 140.0
-margin_bottom = 60.0
+margin_top = 37.0
+margin_right = 83.0
+margin_bottom = 50.0
 text = "Sound Volume"
 
 [node name="SoundFxVolumeHSlider" type="HSlider" parent="MarginContainer/GridContainer"]
-margin_left = 160.0
-margin_top = 40.0
+margin_left = 103.0
+margin_top = 36.0
 margin_right = 442.0
-margin_bottom = 56.0
+margin_bottom = 52.0
 min_value = -80.0
 max_value = 6.0
 
 [node name="MusicVolumeLabel" type="Label" parent="MarginContainer/GridContainer"]
-margin_top = 80.0
-margin_right = 140.0
-margin_bottom = 100.0
+margin_top = 73.0
+margin_right = 83.0
+margin_bottom = 86.0
 text = "Music Volume"
 
 [node name="MusicVolumeHSlider" type="HSlider" parent="MarginContainer/GridContainer"]
-margin_left = 160.0
-margin_top = 80.0
+margin_left = 103.0
+margin_top = 72.0
 margin_right = 442.0
-margin_bottom = 96.0
+margin_bottom = 88.0
 min_value = -80.0
 max_value = 6.0
 
