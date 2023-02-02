@@ -1,3 +1,4 @@
+class_name MovingObstacle
 extends "res://scenes/environment/obstacle.gd"
 
 export var speed = 10.0

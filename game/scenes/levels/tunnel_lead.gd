@@ -1,7 +1,13 @@
 class_name TunnelLead
 extends Node2D
 
-signal level_over()
+signal level_over(level_over_reason)
+
+enum LevelOverReason {
+	NONE,
+	OOB,
+	TUNNEL,
+}
 
 export var speed := 1.5
 export var line_2d:NodePath
@@ -66,16 +72,19 @@ func _get_input_direction() -> Vector2:
 	return v
 
 
-func _collided_or_out_of_bounds() -> bool:
+func _collided_or_out_of_bounds() -> int:
 	var test_pt = _direction * _line_2d.width/2.0 + position
 	
 	if !_out_of_bounds_rect.has_point(test_pt):
-		return true
+		return LevelOverReason.OOB
 	
 	var closest_pt = _a_star.get_closest_position_in_segment(test_pt)
 	var last_pt = _a_star.get_point_position(_a_star.get_point_count() - 1)
 	
-	return !closest_pt.is_equal_approx(last_pt)
+	if !closest_pt.is_equal_approx(last_pt):
+		return LevelOverReason.TUNNEL
+	
+	return LevelOverReason.NONE
 
 
 
@@ -130,7 +139,8 @@ func _physics_process(delta):
 	_line_2d.points = points
 	_a_star.set_point_position(_a_star.get_point_count() - 1, pos)
 	
-	if _collided_or_out_of_bounds():
-		emit_signal("level_over")
+	var level_over_reason = _collided_or_out_of_bounds()
+	if level_over_reason != LevelOverReason.NONE:
+		emit_signal("level_over", level_over_reason)
 		set_physics_process(false)
 

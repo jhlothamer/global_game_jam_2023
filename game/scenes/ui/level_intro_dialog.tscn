@@ -56,24 +56,24 @@ polygon = PoolVector2Array( 67, 140, 101, 311, 418, 293, 437, 131 )
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 margin_right = 512.0
-margin_bottom = 21.0
+margin_bottom = 14.0
 custom_constants/margin_right = 100
 custom_constants/margin_left = 100
 
 [node name="InstructionsLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
 margin_left = 100.0
 margin_right = 412.0
-margin_bottom = 21.0
+margin_bottom = 14.0
 custom_colors/default_color = Color( 0.945098, 1, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "[center]Intro text goes here![/center]"
-text = "[center]Intro text goes here![/center]"
+text = "Intro text goes here!"
 fit_content_height = true
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 41.0
+margin_top = 34.0
 margin_right = 512.0
-margin_bottom = 78.0
+margin_bottom = 71.0
 
 [node name="PlayBtn" type="Button" parent="VBoxContainer/CenterContainer"]
 margin_left = 217.0
