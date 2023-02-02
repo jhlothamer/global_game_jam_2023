@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/shaders/vignette_shader_mat.tres" type="Material" id=1]
+[ext_resource path="res://scenes/ui/player_vignette.gd" type="Script" id=2]
+
+[node name="PlayerVignette" type="ColorRect"]
+material = ExtResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 512.0
+margin_bottom = 384.0
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]

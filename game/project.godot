@@ -149,6 +149,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot_helper_pack/core/util/node_util.gd"
 }, {
+"base": "ColorRect",
+"class": "PlayerVignette",
+"language": "GDScript",
+"path": "res://scenes/ui/player_vignette.gd"
+}, {
 "base": "Node",
 "class": "PolygonUtil",
 "language": "GDScript",
@@ -303,6 +308,7 @@ _global_script_class_icons={
 "Mover2D": "",
 "MultiMeshInstanceDistributionArea": "",
 "NodeUtil": "",
+"PlayerVignette": "",
 "PolygonUtil": "",
 "PressableMenuButton": "",
 "ProjectSettingsHelper": "",

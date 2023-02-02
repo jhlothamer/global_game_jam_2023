@@ -8,7 +8,8 @@ onready var _score_carrots := [
 ]
 onready var _results_lbl: Label = $VBoxContainer/MarginContainer/ResultsLabel
 onready var _continue_btn: Button = $VBoxContainer/HBoxContainer2/VBoxContainer/ContinueBtn
-
+onready var _player_vig: PlayerVignette = $PlayerVignette
+onready var _ui: VBoxContainer = $VBoxContainer
 
 var _can_continue := false
 
@@ -25,7 +26,6 @@ func _on_level_completed():
 
 	show()
 	get_tree().paused = true
-	_continue_btn.grab_focus()
 	
 	
 	var message = "Good Job!"
@@ -47,6 +47,12 @@ func _on_level_completed():
 	_can_continue = percent_complete >= .25
 	if !_can_continue:
 		_continue_btn.text = "Replay Level"
+	
+	yield(_player_vig.outro_vignette(), "completed")
+	
+	_ui.show()
+	_continue_btn.grab_focus()
+
 
 func _on_ContinueBtn_pressed():
 	if _can_continue:

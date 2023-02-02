@@ -26,6 +26,10 @@ var _a_star := AStar2D.new()
 var _out_of_bounds_rect := Rect2(Vector2.ZERO, Vector2.INF)
 
 
+func _enter_tree():
+	ServiceMgr.register_service(get_script(), self)
+
+
 func _ready():
 	if !_line_2d:
 		printerr("TunnelLead: no line 2d set.")

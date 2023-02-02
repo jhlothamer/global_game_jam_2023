@@ -2,8 +2,8 @@ extends Control
 
 onready var _play_btn: Button = $VBoxContainer/CenterContainer/PlayBtn
 onready var _instruct_lbl: RichTextLabel = $VBoxContainer/MarginContainer/InstructionsLabel
-
-
+onready var _player_vig = $PlayerVignette
+onready var _ui = $VBoxContainer
 
 func _ready():
 	get_tree().paused = true
@@ -17,5 +17,7 @@ func _ready():
 
 
 func _on_PlayBtn_pressed():
+	_ui.hide()
+	yield(_player_vig.intro_vignette(), "completed")
 	hide()
 	get_tree().paused = false
