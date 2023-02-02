@@ -5,7 +5,11 @@ extends Label
 signal level_completed()
 
 
+export var item_collected_scale := Vector2.ONE * 1.2
+
+
 onready var _item_collected_sound: AudioStreamPlayer = $BBunnySfxPowerUp
+onready var _tween: Tween = $Tween
 
 
 var _items_collected_count := 0
@@ -34,6 +38,7 @@ func _on_item_collected():
 	_items_collected_count += 1
 	_update_label()
 	_item_collected_sound.play(.1)
+	_animate()
 	if _items_collected_count == _total_number_of_items:
 #		if _item_collected_sound.playing:
 #			yield(_item_collected_sound, "finished")
@@ -49,3 +54,9 @@ func get_items_collected_percentage() -> float:
 func _get_number_of_items_callback(number_of_items) -> void:
 	_total_number_of_items = number_of_items
 	_update_label()
+
+
+func _animate() -> void:
+	_tween.interpolate_property(self, "rect_scale", Vector2.ONE, item_collected_scale, .1)
+	_tween.interpolate_property(self, "rect_scale", item_collected_scale, Vector2.ONE, .1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, .1)
+	_tween.start()
