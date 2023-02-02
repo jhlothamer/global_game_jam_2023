@@ -11,22 +11,29 @@ onready var _results_lbl: Label = $VBoxContainer/MarginContainer/ResultsLabel
 onready var _continue_btn: Button = $VBoxContainer/HBoxContainer2/VBoxContainer/ContinueBtn
 onready var _player_vig: PlayerVignette = $PlayerVignette
 onready var _ui: VBoxContainer = $VBoxContainer
+onready var _ouch_sound: AudioStreamPlayer = $BBunnySfxOuch
+onready var _win_sound: AudioStreamPlayer = $BBunnySfxWin
 
 var _can_continue := false
 
 func _ready():
 	hide()
-	SignalMgr.register_subscriber(self, "level_over", "_on_level_completed")
-	SignalMgr.register_subscriber(self, "level_completed")
-	SignalMgr.register_subscriber(self, "obstacle_hit", "_on_level_completed")
+	SignalMgr.register_subscriber(self, "level_over", "_on_level_completed", [false])
+	SignalMgr.register_subscriber(self, "level_completed", "_on_level_completed", [true])
+	SignalMgr.register_subscriber(self, "obstacle_hit", "_on_level_completed", [false])
 	SignalMgr.register_publisher(self, "level_stop")
 
 
-func _on_level_completed():
+func _on_level_completed(win: bool):
 	var score_mgr: ScoreMgr = ServiceMgr.get_service(ScoreMgr)
 	var percent_complete = score_mgr.get_items_collected_percentage()
 
 	emit_signal("level_stop")
+
+	if win:
+		_win_sound.play()
+	else:
+		_ouch_sound.play()
 	
 	show()
 	get_tree().paused = true
