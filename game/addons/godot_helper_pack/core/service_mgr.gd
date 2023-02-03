@@ -90,7 +90,8 @@ func unregister_service(service: Script, name: String = "") -> void:
 
 
 func _watch_service_implementation_tree_exit(service: Script, implementation: Object, name: String = "") -> void:
-	implementation.connect("tree_exited", self, "_on_implementation_tree_exited", [service, name])
+	if !implementation.is_connected("tree_exited", self, "_on_implementation_tree_exited"):
+		implementation.connect("tree_exited", self, "_on_implementation_tree_exited", [service, name])
 
 
 func _on_implementation_tree_exited(service: Script, name: String) -> void:

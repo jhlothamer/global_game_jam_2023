@@ -17,19 +17,26 @@ enum OutroReason {
 }
 
 onready var _score_carrots_sprites := [
-	$UI/VBoxContainer/HBoxContainer/ScoreCarrot1/Sprite,
-	$UI/VBoxContainer/HBoxContainer/ScoreCarrot2/Sprite,
-	$UI/VBoxContainer/HBoxContainer/ScoreCarrot3/Sprite,
+	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot1/Sprite,
+	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot2/Sprite,
+	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot3/Sprite,
+]
+onready var _score_carrots_particles := [
+	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot1/CPUParticles2D,
+	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot2/CPUParticles2D,
+	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot3/CPUParticles2D,
 ]
 onready var _results_lbl: Label = $UI/VBoxContainer/MarginContainer/VBoxContainer/ResultsLabel
 onready var _comment_lbl: Label = $UI/VBoxContainer/MarginContainer/VBoxContainer/CommentLabel
-onready var _continue_btn: Button = $UI/VBoxContainer/HBoxContainer2/VBoxContainer/ContinueBtn
-onready var _replay_btn: Button = $UI/VBoxContainer/HBoxContainer2/VBoxContainer/ReplayBtn
+onready var _continue_btn: Button = $UI/VBoxContainer/ButtonBar/ContinueBtn
+onready var _replay_btn: Button = $UI/VBoxContainer/ButtonBar/ReplayBtn
 onready var _player_vig: PlayerVignette = $PlayerVignette
 onready var _ui: Control = $UI
 onready var _ouch_sound: AudioStreamPlayer = $BBunnySfxOuch
 onready var _win_sound: AudioStreamPlayer = $BBunnySfxWin
-
+onready var _tween: Tween =$Tween
+onready var _background: Node2D = $Background
+onready var _button_bar: Control = $UI/VBoxContainer/ButtonBar
 
 func _ready():
 	hide()
@@ -38,6 +45,9 @@ func _ready():
 	SignalMgr.register_subscriber(self, "level_completed")
 	SignalMgr.register_subscriber(self, "obstacle_hit")
 	SignalMgr.register_publisher(self, "level_stop")
+	
+	_ui.modulate = Color.transparent
+	_button_bar.modulate = Color.transparent
 
 func _on_level_over(level_over_reason:int ) -> void:
 	var msg := ""
@@ -81,7 +91,7 @@ func _show_dialog(win: bool, comment_msg: String):
 	
 	_ui.show()
 	
-	_animate_score(score)
+	_animate(score)
 
 	var can_continue = score >= 1
 	if !can_continue:
@@ -115,13 +125,51 @@ func _on_ContinueBtn_pressed():
 func _on_ReplayBtn_pressed():
 	LevelMgr.reload_current_level()
 
+func _animate(score: int) -> void:
+	_button_bar.modulate = Color.transparent
+	_button_bar.visible = true
+	_tween.interpolate_property(_background, "position", _background.position, Vector2.ZERO, .1)
+	var delay = _tween.get_runtime() + .2
+	_ui.rect_scale = Vector2.ONE * .2
+	_tween.interpolate_property(_ui, "modulate", Color.transparent, Color.white, .1,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, delay)
+	_tween.interpolate_property(_ui, "rect_scale", _ui.rect_scale, Vector2.ONE, .4, Tween.TRANS_ELASTIC, Tween.EASE_OUT, delay)
+
+	_tween.start()
+	yield(_tween, "tween_all_completed")
+	
+	yield(_animate_score(score), "completed")
+	
+	_button_bar.rect_position.x = -512
+	delay = .2
+	_tween.interpolate_property(_button_bar, "modulate", Color.transparent, Color.white, .1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, delay)
+	_tween.interpolate_property(_button_bar, "rect_position", _button_bar.rect_position, Vector2(0, _button_bar.rect_position.y), .4, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT, delay)
+
+	_tween.start()
+	yield(_tween, "tween_all_completed")
+
+	
 
 func _animate_score(score: int) -> void:
-	print("score was %d" % score)
 	for i in _score_carrots_sprites.size():
 		if score > i:
 			_score_carrots_sprites[i].modulate = Color.white
-			print(_score_carrots_sprites[i].get_path())
+			var sprite: Sprite = _score_carrots_sprites[i]
+			_tween.interpolate_property(sprite, "modulate", sprite.modulate, Color.white, .3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, .3)
+			_tween.start()
+			var particles: CPUParticles2D = _score_carrots_particles[i]
+			particles.emitting = true
+			yield(get_tree().create_timer(.7), "timeout")
+			
+
+
+
+
+
+
+
+
+
+
 
 
 
