@@ -49,7 +49,7 @@ func _on_level_over(level_over_reason:int ) -> void:
 	
 
 func _on_obstacle_hit(obstacle) -> void:
-	var msg := "Watch out for those rocks!"
+	var msg := "Watch out for those crystals!"
 	if obstacle is MovingObstacle:
 		msg = "We told you bettles were meanies!"
 	_show_dialog(false, msg)

@@ -1,3 +1,4 @@
+tool
 extends Node
 """
 Signal Manager automatically connects subscribers to the signals of publishers.

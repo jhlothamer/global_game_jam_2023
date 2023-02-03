@@ -4,6 +4,10 @@ var _level_scenes = [
 	"res://scenes/levels/level_01.tscn",
 	"res://scenes/levels/level_02.tscn",
 	"res://scenes/levels/level_03.tscn",
+	"res://scenes/levels/level_04.tscn",
+	"res://scenes/levels/level_05.tscn",
+	"res://scenes/levels/level_06.tscn",
+	"res://scenes/levels/level_07.tscn",
 ]
 
 var _current_level = -1
@@ -20,4 +24,10 @@ func advance_to_next_level() -> void:
 
 
 func reload_current_level() -> void:
+	if _current_level == -1:
+		var current_scene = get_tree().get_current_scene()
+		var temp = _level_scenes.find(current_scene.filename)
+		if temp > -1:
+			_current_level = temp
 	TransitionMgr.transition_to(_level_scenes[_current_level])
+

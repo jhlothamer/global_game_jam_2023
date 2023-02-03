@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/levels/level_base.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/environment/crystal_obstacle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/environment/beetle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/environment/item.tscn" type="PackedScene" id=4]
+
+[node name="Level07" instance=ExtResource( 1 )]
+intro_message_bbs = "[center]Beetles + crystals = double trouble!!![/center]"
+
+[node name="Item" parent="Items" index="0" instance=ExtResource( 4 )]
+position = Vector2( 62, 69 )
+
+[node name="Item2" parent="Items" index="1" instance=ExtResource( 4 )]
+position = Vector2( 238, 193 )
+
+[node name="Item3" parent="Items" index="2" instance=ExtResource( 4 )]
+position = Vector2( 129, 289 )
+
+[node name="Item4" parent="Items" index="3" instance=ExtResource( 4 )]
+position = Vector2( 449, 277 )
+
+[node name="Item5" parent="Items" index="4" instance=ExtResource( 4 )]
+position = Vector2( 446, 83 )
+
+[node name="Item6" parent="Items" index="5" instance=ExtResource( 4 )]
+position = Vector2( 295, 96 )
+
+[node name="Item7" parent="Items" index="6" instance=ExtResource( 4 )]
+position = Vector2( 314, 316 )
+
+[node name="CrystalObstacle" parent="Obstacles" index="0" instance=ExtResource( 2 )]
+position = Vector2( 107, 84 )
+crystal_size = 3
+
+[node name="CrystalObstacle2" parent="Obstacles" index="1" instance=ExtResource( 2 )]
+position = Vector2( 151, 123 )
+crystal_size = 3
+
+[node name="CrystalObstacle3" parent="Obstacles" index="2" instance=ExtResource( 2 )]
+position = Vector2( 197, 163 )
+crystal_size = 3
+
+[node name="CrystalObstacle4" parent="Obstacles" index="3" instance=ExtResource( 2 )]
+position = Vector2( 391, 223 )
+crystal_size = 3
+
+[node name="CrystalObstacle5" parent="Obstacles" index="4" instance=ExtResource( 2 )]
+position = Vector2( 396, 280 )
+crystal_size = 3
+
+[node name="CrystalObstacle6" parent="Obstacles" index="5" instance=ExtResource( 2 )]
+position = Vector2( 393, 326 )
+crystal_size = 3
+
+[node name="CrystalObstacle7" parent="Obstacles" index="6" instance=ExtResource( 2 )]
+position = Vector2( 275, 228 )
+crystal_size = 3
+
+[node name="CrystalObstacle8" parent="Obstacles" index="7" instance=ExtResource( 2 )]
+position = Vector2( 406, 82 )
+crystal_size = 3
+
+[node name="CrystalObstacle9" parent="Obstacles" index="8" instance=ExtResource( 2 )]
+position = Vector2( 103, 251 )
+crystal_size = 3
+
+[node name="CrystalObstacle10" parent="Obstacles" index="9" instance=ExtResource( 2 )]
+position = Vector2( 152, 318 )
+crystal_size = 3
+
+[node name="CrystalObstacle11" parent="Obstacles" index="10" instance=ExtResource( 2 )]
+position = Vector2( 288, 55 )
+crystal_size = 3
+
+[node name="CrystalObstacle12" parent="Obstacles" index="11" instance=ExtResource( 2 )]
+position = Vector2( 249, 80 )
+crystal_size = 3
+
+[node name="Beetle" parent="Obstacles" index="12" instance=ExtResource( 3 )]
+position = Vector2( 201, 133 )
+
+[node name="Beetle2" parent="Obstacles" index="13" instance=ExtResource( 3 )]
+position = Vector2( 325, 131 )
+
+[node name="Beetle3" parent="Obstacles" index="14" instance=ExtResource( 3 )]
+position = Vector2( 329, 264 )
+
+[node name="Beetle4" parent="Obstacles" index="15" instance=ExtResource( 3 )]
+position = Vector2( 198, 269 )
