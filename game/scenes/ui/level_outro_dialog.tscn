@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/ui/player_vignette.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/transition_button/transition_button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/themes/global.tres" type="Theme" id=3]
-[ext_resource path="res://assets/images/temp/temp_ui_carrot.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/ui/carrot_icon_ilikethepixies.png" type="Texture" id=4]
 [ext_resource path="res://scenes/ui/level_outro_dialog.gd" type="Script" id=5]
 [ext_resource path="res://assets/sounds/bbunny_sfx_win_01_museric.mp3" type="AudioStream" id=6]
 [ext_resource path="res://assets/sounds/bbunny_sfx_ouch_01_museric.mp3" type="AudioStream" id=7]
 [ext_resource path="res://assets/themes/title_labels.tres" type="Theme" id=8]
+[ext_resource path="res://assets/images/roots/rootveggies_sparkle2_ilikethepixies.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/temp/score_dlg_mockup.png" type="Texture" id=10]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -34,6 +36,19 @@ shader_param/MULTIPLIER = 0.75
 shader_param/SCALE = 6.4
 shader_param/SOFTNESS = 0.2
 
+[sub_resource type="CanvasItemMaterial" id=3]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0.00141443, 0.51148 ), 0.0, 0.31588, 0, 1, Vector2( 1, 1 ), 1.01515, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0.244253, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.0156863 )
+
 [node name="LevelOutro" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
@@ -47,34 +62,65 @@ material = SubResource( 2 )
 margin_right = 0.0
 margin_bottom = 0.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
+[node name="UI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Background" type="Node2D" parent="UI"]
+
+[node name="ScoreDlgMockup" type="Sprite" parent="UI/Background"]
+visible = false
+position = Vector2( -72, -48 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="Polygon2D" type="Polygon2D" parent="UI/Background"]
+color = Color( 0.258824, 0.223529, 0.192157, 1 )
+polygon = PoolVector2Array( 304, 0, 0, 224, 0, 384, 192, 384, 512, 144, 512, 0 )
+
+[node name="Polygon2D" type="Polygon2D" parent="UI/Background/Polygon2D"]
+show_behind_parent = true
+color = Color( 0.192157, 0.168627, 0.14902, 1 )
+polygon = PoolVector2Array( 512, 128, 160, 384, 208, 384, 512, 160 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="UI/Background"]
+color = Color( 0.258824, 0.223529, 0.192157, 1 )
+polygon = PoolVector2Array( 240, 0, 0, 176, 0, 192, 256, 0 )
+
+[node name="Polygon2D" type="Polygon2D" parent="UI/Background/Polygon2D2"]
+show_behind_parent = true
+color = Color( 0.192157, 0.168627, 0.14902, 1 )
+polygon = PoolVector2Array( 0, 184, 0, 200, 264, 0, 248, 0 )
+
+[node name="Polygon2D3" type="Polygon2D" parent="UI/Background"]
+color = Color( 0.258824, 0.223529, 0.192157, 1 )
+polygon = PoolVector2Array( 512, 192, 256, 384, 272, 384, 512, 208 )
+
+[node name="Polygon2D" type="Polygon2D" parent="UI/Background/Polygon2D3"]
+show_behind_parent = true
+color = Color( 0.192157, 0.168627, 0.14902, 1 )
+polygon = PoolVector2Array( 512, 200, 264, 384, 280, 384, 512, 216 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -256.0
-margin_top = -127.0
-margin_right = 256.0
-margin_bottom = 127.0
-custom_constants/separation = 10
+margin_top = 21.5
+margin_right = 512.0
+margin_bottom = 322.5
+custom_constants/separation = 20
 
-[node name="Polygon2D" type="Polygon2D" parent="VBoxContainer"]
-position = Vector2( 0, -72.5 )
-color = Color( 0.454902, 0.298039, 0.160784, 1 )
-polygon = PoolVector2Array( 47, 65.5, 100, 380.5, 413, 369.5, 444, 43.5 )
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/VBoxContainer"]
 margin_right = 512.0
 margin_bottom = 78.0
 custom_constants/margin_right = 100
 custom_constants/margin_left = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/VBoxContainer/MarginContainer"]
 margin_left = 100.0
 margin_right = 412.0
 margin_bottom = 78.0
 
-[node name="ResultsLabel" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="ResultsLabel" type="Label" parent="UI/VBoxContainer/MarginContainer/VBoxContainer"]
 margin_right = 312.0
 margin_bottom = 61.0
 theme = ExtResource( 8 )
@@ -83,7 +129,7 @@ text = "Collect more vegies to continue"
 align = 1
 autowrap = true
 
-[node name="CommentLabel" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="CommentLabel" type="Label" parent="UI/VBoxContainer/MarginContainer/VBoxContainer"]
 margin_top = 65.0
 margin_right = 312.0
 margin_bottom = 78.0
@@ -91,69 +137,145 @@ custom_colors/font_color = Color( 0.945098, 1, 0, 1 )
 text = "Good job!"
 align = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 88.0
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/VBoxContainer"]
+margin_top = 98.0
 margin_right = 512.0
-margin_bottom = 173.0
+margin_bottom = 198.0
 grow_horizontal = 2
+custom_constants/separation = -30
 alignment = 1
 
-[node name="ScoreCarrot1" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
-margin_left = 148.0
-margin_right = 217.0
-margin_bottom = 85.0
-texture = ExtResource( 4 )
+[node name="ScoreCarrot1" type="Control" parent="UI/VBoxContainer/HBoxContainer"]
+margin_left = 136.0
+margin_right = 236.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
 
-[node name="ScoreCarrot2" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
-margin_left = 221.0
-margin_right = 290.0
-margin_bottom = 85.0
+[node name="Sprite" type="Sprite" parent="UI/VBoxContainer/HBoxContainer/ScoreCarrot1"]
+modulate = Color( 0, 0, 0, 0.290196 )
 texture = ExtResource( 4 )
+centered = false
+hframes = 2
 
-[node name="ScoreCarrot3" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
-margin_left = 294.0
-margin_right = 363.0
-margin_bottom = 85.0
+[node name="CPUParticles2D" type="CPUParticles2D" parent="UI/VBoxContainer/HBoxContainer/ScoreCarrot1"]
+material = SubResource( 3 )
+position = Vector2( 48, 49 )
+rotation = -0.327813
+emitting = false
+amount = 10
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource( 9 )
+emission_shape = 2
+emission_rect_extents = Vector2( 20, 50 )
+gravity = Vector2( 0, 0 )
+scale_amount = 2.0
+scale_amount_random = 0.25
+scale_amount_curve = SubResource( 4 )
+color_ramp = SubResource( 5 )
+anim_speed = 10.0
+
+[node name="ScoreCarrot2" type="Control" parent="UI/VBoxContainer/HBoxContainer"]
+margin_left = 206.0
+margin_right = 306.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+
+[node name="Sprite" type="Sprite" parent="UI/VBoxContainer/HBoxContainer/ScoreCarrot2"]
+modulate = Color( 0, 0, 0, 0.290196 )
 texture = ExtResource( 4 )
+centered = false
+hframes = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 183.0
+[node name="CPUParticles2D" type="CPUParticles2D" parent="UI/VBoxContainer/HBoxContainer/ScoreCarrot2"]
+material = SubResource( 3 )
+position = Vector2( 48, 49 )
+rotation = -0.327813
+emitting = false
+amount = 10
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource( 9 )
+emission_shape = 2
+emission_rect_extents = Vector2( 20, 50 )
+gravity = Vector2( 0, 0 )
+scale_amount = 2.0
+scale_amount_random = 0.25
+scale_amount_curve = SubResource( 4 )
+color_ramp = SubResource( 5 )
+anim_speed = 10.0
+
+[node name="ScoreCarrot3" type="Control" parent="UI/VBoxContainer/HBoxContainer"]
+margin_left = 276.0
+margin_right = 376.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+
+[node name="Sprite" type="Sprite" parent="UI/VBoxContainer/HBoxContainer/ScoreCarrot3"]
+modulate = Color( 0, 0, 0, 0.290196 )
+texture = ExtResource( 4 )
+centered = false
+hframes = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="UI/VBoxContainer/HBoxContainer/ScoreCarrot3"]
+material = SubResource( 3 )
+position = Vector2( 48, 49 )
+rotation = -0.327813
+emitting = false
+amount = 10
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource( 9 )
+emission_shape = 2
+emission_rect_extents = Vector2( 20, 50 )
+gravity = Vector2( 0, 0 )
+scale_amount = 2.0
+scale_amount_random = 0.25
+scale_amount_curve = SubResource( 4 )
+color_ramp = SubResource( 5 )
+anim_speed = 10.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/VBoxContainer"]
+margin_top = 218.0
 margin_right = 512.0
-margin_bottom = 286.0
+margin_bottom = 239.0
 
-[node name="SpacerControl1" type="Control" parent="VBoxContainer/HBoxContainer2"]
-margin_right = 212.0
-margin_bottom = 103.0
+[node name="SpacerControl1" type="Control" parent="UI/VBoxContainer/HBoxContainer2"]
+margin_right = 121.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 216.0
-margin_right = 295.0
-margin_bottom = 103.0
-custom_constants/separation = 20
+[node name="VBoxContainer" type="HBoxContainer" parent="UI/VBoxContainer/HBoxContainer2"]
+margin_left = 125.0
+margin_right = 386.0
+margin_bottom = 21.0
+custom_constants/separation = 30
 
-[node name="ContinueBtn" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_right = 79.0
+[node name="ContinueBtn" type="Button" parent="UI/VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_right = 70.0
 margin_bottom = 21.0
 focus_mode = 1
 theme_type_variation = "minor_button"
 enabled_focus_mode = 1
 text = "Continue"
 
-[node name="ReplayBtn" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 41.0
-margin_right = 79.0
-margin_bottom = 62.0
+[node name="ReplayBtn" type="Button" parent="UI/VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_left = 100.0
+margin_right = 152.0
+margin_bottom = 21.0
 focus_mode = 1
 theme_type_variation = "minor_button"
 enabled_focus_mode = 1
 text = "Replay"
 
-[node name="MainMenuBtn" parent="VBoxContainer/HBoxContainer2/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 82.0
-margin_right = 79.0
-margin_bottom = 103.0
+[node name="MainMenuBtn" parent="UI/VBoxContainer/HBoxContainer2/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 182.0
+margin_right = 261.0
+margin_bottom = 21.0
 focus_mode = 1
 theme_type_variation = "minor_button"
 enabled_focus_mode = 1
@@ -161,10 +283,10 @@ text = "Main Menu"
 align = 1
 scene_to_load = "res://scenes/etc/title.tscn"
 
-[node name="SpacerControl2" type="Control" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 299.0
+[node name="SpacerControl2" type="Control" parent="UI/VBoxContainer/HBoxContainer2"]
+margin_left = 390.0
 margin_right = 512.0
-margin_bottom = 103.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -176,5 +298,7 @@ bus = "SoundFx"
 stream = ExtResource( 6 )
 bus = "SoundFx"
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer/ContinueBtn" to="." method="_on_ContinueBtn_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer/ReplayBtn" to="." method="_on_ReplayBtn_pressed"]
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="pressed" from="UI/VBoxContainer/HBoxContainer2/VBoxContainer/ContinueBtn" to="." method="_on_ContinueBtn_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/HBoxContainer2/VBoxContainer/ReplayBtn" to="." method="_on_ReplayBtn_pressed"]

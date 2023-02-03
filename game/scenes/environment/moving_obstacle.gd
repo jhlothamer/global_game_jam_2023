@@ -35,6 +35,9 @@ func _get_out_of_bounds_rect_callback(oob_rect: Rect2) -> void:
 	]
 
 
+func _direction_updated() -> void:
+	pass
+
 
 func _physics_process(delta):
 	position += _direction * speed * delta
@@ -53,3 +56,4 @@ func _physics_process(delta):
 	var side_center = (pt1 + pt2) / 2.0
 	var v:Vector2 = _oob_center - side_center
 	_direction = v.rotated(rand_range(-_oob_reflection_max, _oob_reflection_max)).normalized()
+	_direction_updated()

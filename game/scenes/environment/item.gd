@@ -1,5 +1,7 @@
 extends Node2D
 
+const SPARKLE_CLASS = preload("res://scenes/environment/sparkle.tscn")
+
 signal item_collected()
 
 
@@ -41,4 +43,13 @@ func _ready():
 func _on_Area2D_area_entered(area: Area2D):
 	if area.is_in_group("player"):
 		emit_signal("item_collected")
+		visible = false
+		_sparkle()
 		queue_free()
+
+func _sparkle():
+	var sparkle = SPARKLE_CLASS.instance()
+	get_parent().add_child(sparkle)
+	sparkle.position = position
+
+
