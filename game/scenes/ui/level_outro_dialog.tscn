@@ -246,9 +246,7 @@ alignment = 1
 margin_left = 125.0
 margin_right = 195.0
 margin_bottom = 21.0
-focus_mode = 1
 theme_type_variation = "minor_button"
-enabled_focus_mode = 1
 text = "Continue"
 
 [node name="ButtonSound" parent="UI/VBoxContainer/ButtonBar/ContinueBtn" instance=ExtResource( 10 )]
@@ -257,9 +255,7 @@ text = "Continue"
 margin_left = 225.0
 margin_right = 277.0
 margin_bottom = 21.0
-focus_mode = 1
 theme_type_variation = "minor_button"
-enabled_focus_mode = 1
 text = "Replay"
 
 [node name="ButtonSound" parent="UI/VBoxContainer/ButtonBar/ReplayBtn" instance=ExtResource( 10 )]
@@ -268,9 +264,7 @@ text = "Replay"
 margin_left = 307.0
 margin_right = 386.0
 margin_bottom = 21.0
-focus_mode = 1
 theme_type_variation = "minor_button"
-enabled_focus_mode = 1
 text = "Main Menu"
 align = 1
 scene_to_load = "res://scenes/etc/title.tscn"
