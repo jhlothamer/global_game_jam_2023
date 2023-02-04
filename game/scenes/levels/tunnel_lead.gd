@@ -51,6 +51,7 @@ func _ready():
 	SignalMgr.register_publisher(self, "level_over")
 	SignalMgr.register_subscriber(self, "level_stop")
 	SignalMgr.register_subscriber(self, "item_collected")
+	SignalMgr.register_subscriber(self, "obstacle_hit")
 
 	_direction = initial_direction.normalized()
 	_anim_sprite.rotation = _direction.angle()
@@ -163,3 +164,9 @@ func _on_AnimatedSprite_frame_changed():
 		_anim_sprite.rotation = 0.0
 
 
+func _on_obstacle_hit(_obstacle) -> void:
+	_anim_sprite.play("ouch")
+	_anim_sprite.connect("frame_changed", self, "_on_AnimatedSprite_frame_changed")
+	_anim_sprite.pause_mode = Node.PAUSE_MODE_PROCESS
+	_dig_particles.emitting = false
+	set_physics_process(false)

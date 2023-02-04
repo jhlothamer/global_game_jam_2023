@@ -15,10 +15,6 @@ centered = false
 
 [node name="DirtExtras" parent="." index="2"]
 visible = false
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
 [node name="DirtExtraSprite" type="Sprite" parent="DirtExtras" index="0"]
 position = Vector2( 303.747, 357.869 )
@@ -104,18 +100,6 @@ hframes = 5
 vframes = 3
 frame = 1
 
-[node name="TunnelLead" parent="." index="4"]
-position = Vector2( 80, 317 )
-
-[node name="Item" parent="Items" index="0" instance=ExtResource( 3 )]
-position = Vector2( 120, 104 )
-
-[node name="Item2" parent="Items" index="1" instance=ExtResource( 3 )]
-position = Vector2( 261, 156 )
-
-[node name="Item3" parent="Items" index="2" instance=ExtResource( 3 )]
-position = Vector2( 433, 317 )
-
 [node name="CrystalObstacle" parent="Obstacles" index="0" instance=ExtResource( 2 )]
 position = Vector2( 195, 104 )
 crystal_size = 3
@@ -139,3 +123,15 @@ crystal_size = 3
 [node name="CrystalObstacle6" parent="Obstacles" index="5" instance=ExtResource( 2 )]
 position = Vector2( 202, 292 )
 crystal_size = 3
+
+[node name="TunnelLead" parent="." index="5"]
+position = Vector2( 80, 317 )
+
+[node name="Item" parent="Items" index="0" instance=ExtResource( 3 )]
+position = Vector2( 120, 104 )
+
+[node name="Item2" parent="Items" index="1" instance=ExtResource( 3 )]
+position = Vector2( 261, 156 )
+
+[node name="Item3" parent="Items" index="2" instance=ExtResource( 3 )]
+position = Vector2( 433, 317 )
