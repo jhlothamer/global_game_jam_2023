@@ -14,7 +14,7 @@ export var discarded_point_clone_parent: NodePath
 export (Array, PackedScene) var scenes_to_distribute: Array = []
 export var enabled := true
 export var layer_exclusion_polygon_node_group := "layer_exclusion_polygon"
-
+export var clone_config_node: NodePath
 
 
 func get_clone_parent() -> Node:
@@ -40,6 +40,14 @@ func get_items_to_distribute() -> Array:
 	if items.size() < 1:
 		push_error("RandomDistributionAreaLayer: no items to distribute (%s)" % get_path())
 	return items
+
+func get_clone_config_node() -> CloneConfig:
+	if clone_config_node and !clone_config_node.is_empty():
+		var ccn:CloneConfig = get_node_or_null(clone_config_node)
+		if !ccn:
+			printerr("Clone config node is a bad node path or not a clone config derived node.")
+		return ccn
+	return null
 
 func _enter_tree():
 	update_configuration_warning()

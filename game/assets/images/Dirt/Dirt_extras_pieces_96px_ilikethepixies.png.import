@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/temp_ui_carrot.png-28ea5544dba10154966d3e9f6d05d996.stex"
+path="res://.import/Dirt_extras_pieces_96px_ilikethepixies.png-6cb3936ad320586a81f43c4f0a114604.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/temp/temp_ui_carrot.png"
-dest_files=[ "res://.import/temp_ui_carrot.png-28ea5544dba10154966d3e9f6d05d996.stex" ]
+source_file="res://assets/images/Dirt/Dirt_extras_pieces_96px_ilikethepixies.png"
+dest_files=[ "res://.import/Dirt_extras_pieces_96px_ilikethepixies.png-6cb3936ad320586a81f43c4f0a114604.stex" ]
 
 [params]
 

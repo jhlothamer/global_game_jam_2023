@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/ui/hud.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/Dirt/tunnel_ilikethepixies2.png" type="Texture" id=2]
@@ -8,11 +8,14 @@
 [ext_resource path="res://assets/images/Dirt/tunnel_cavein_ilikethepixies1.png" type="Texture" id=6]
 [ext_resource path="res://assets/images/Dirt/frame01_ilikethepixies.png" type="Texture" id=7]
 [ext_resource path="res://assets/images/Dirt/dirt02_texture_ilikethepixies1.png" type="Texture" id=8]
+[ext_resource path="res://addons/godot_helper_pack/core/2d/util/distribution/random_distribution_area.gd" type="Script" id=9]
+[ext_resource path="res://assets/images/Dirt/Dirt_extras_pieces_96px_ilikethepixies.png" type="Texture" id=10]
+[ext_resource path="res://addons/godot_helper_pack/core/2d/util/distribution/random_distribution_area_layer.gd" type="Script" id=11]
+[ext_resource path="res://scenes/levels/CloneConfig.gd" type="Script" id=12]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 3 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_lock_": true
 }
 
@@ -26,6 +29,14 @@ margin_bottom = 368.0
 texture = ExtResource( 8 )
 stretch_mode = 2
 __meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="DirtExtras" type="Node2D" parent="."]
+position = Vector2( 16, 16 )
+__meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true
 }
 
@@ -64,7 +75,6 @@ tunnel_lead = NodePath("../TunnelLead")
 
 [node name="Items" type="Node2D" parent="."]
 __meta__ = {
-"_edit_group_": true,
 "_edit_lock_": true
 }
 
@@ -78,6 +88,7 @@ margin_right = 1176.0
 margin_bottom = 929.0
 texture = ExtResource( 7 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true
 }
 
@@ -93,3 +104,25 @@ __meta__ = {
 }
 
 [node name="Hud" parent="." instance=ExtResource( 1 )]
+
+[node name="RandomDistributionArea" type="ReferenceRect" parent="."]
+visible = false
+margin_right = 512.0
+margin_bottom = 384.0
+mouse_filter = 2
+script = ExtResource( 9 )
+
+[node name="RandomDistributionAreaLayer" type="Node" parent="RandomDistributionArea"]
+script = ExtResource( 11 )
+distribution_radius = 120.0
+distributed_clone_parent = NodePath("../../DirtExtras")
+clone_config_node = NodePath("../../CloneConfig")
+
+[node name="DirtExtraSprite" type="Sprite" parent="RandomDistributionArea/RandomDistributionAreaLayer"]
+position = Vector2( -72, -64 )
+texture = ExtResource( 10 )
+hframes = 5
+vframes = 3
+
+[node name="CloneConfig" type="Node" parent="."]
+script = ExtResource( 12 )

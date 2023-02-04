@@ -1,11 +1,102 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/levels/level_base.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/environment/crystal_obstacle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/environment/item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/images/Dirt/Dirt_extras_pieces_96px_ilikethepixies.png" type="Texture" id=4]
 
 [node name="Level03" instance=ExtResource( 1 )]
 intro_message_bbs = "[center]Crystals hurt!  Stay away from them![/center]"
+
+[node name="DirtExtras" parent="." index="1"]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="DirtExtraSprite" type="Sprite" parent="DirtExtras" index="0"]
+position = Vector2( 303.747, 357.869 )
+texture = ExtResource( 4 )
+hframes = 5
+vframes = 3
+frame = 11
+
+[node name="DirtExtraSprite2" type="Sprite" parent="DirtExtras" index="1"]
+position = Vector2( 485.995, 348.812 )
+texture = ExtResource( 4 )
+hframes = 5
+vframes = 3
+frame = 1
+
+[node name="DirtExtraSprite3" type="Sprite" parent="DirtExtras" index="2"]
+position = Vector2( 345.8, 240.901 )
+texture = ExtResource( 4 )
+hframes = 5
+vframes = 3
+frame = 4
+
+[node name="DirtExtraSprite4" type="Sprite" parent="DirtExtras" index="3"]
+position = Vector2( 173.96, 277.991 )
+texture = ExtResource( 4 )
+hframes = 5
+vframes = 3
+frame = 5
+
+[node name="DirtExtraSprite5" type="Sprite" parent="DirtExtras" index="4"]
+position = Vector2( 197.045, 150.437 )
+texture = ExtResource( 4 )
+hframes = 5
+vframes = 3
+frame = 11
+
+[node name="DirtExtraSprite6" type="Sprite" parent="DirtExtras" index="5"]
+position = Vector2( 433.849, 39.0961 )
+texture = ExtResource( 4 )
+hframes = 5
+vframes = 3
+frame = 10
+
+[node name="DirtExtraSprite7" type="Sprite" parent="DirtExtras" index="6"]
+position = Vector2( 205.295, -3.09799 )
+texture = ExtResource( 4 )
+hframes = 5
+vframes = 3
+frame = 9
+
+[node name="DirtExtraSprite8" type="Sprite" parent="DirtExtras" index="7"]
+position = Vector2( 465.457, 207.811 )
+texture = ExtResource( 4 )
+hframes = 5
+vframes = 3
+frame = 2
+
+[node name="DirtExtraSprite9" type="Sprite" parent="DirtExtras" index="8"]
+position = Vector2( 37.2947, 35.6525 )
+texture = ExtResource( 4 )
+hframes = 5
+vframes = 3
+frame = 4
+
+[node name="DirtExtraSprite10" type="Sprite" parent="DirtExtras" index="9"]
+position = Vector2( 83.3081, 197.479 )
+texture = ExtResource( 4 )
+hframes = 5
+vframes = 3
+frame = 2
+
+[node name="DirtExtraSprite11" type="Sprite" parent="DirtExtras" index="10"]
+position = Vector2( 305.402, 91.5191 )
+texture = ExtResource( 4 )
+hframes = 5
+vframes = 3
+frame = 1
+
+[node name="DirtExtraSprite12" type="Sprite" parent="DirtExtras" index="11"]
+position = Vector2( 15.8322, 311.615 )
+texture = ExtResource( 4 )
+hframes = 5
+vframes = 3
+frame = 1
 
 [node name="Item" parent="Items" index="0" instance=ExtResource( 3 )]
 position = Vector2( 120, 104 )
@@ -25,7 +116,7 @@ position = Vector2( 156, 232 )
 crystal_size = 3
 
 [node name="CrystalObstacle3" parent="Obstacles" index="2" instance=ExtResource( 2 )]
-position = Vector2( 357, 215 )
+position = Vector2( 348, 160 )
 crystal_size = 3
 
 [node name="CrystalObstacle4" parent="Obstacles" index="3" instance=ExtResource( 2 )]

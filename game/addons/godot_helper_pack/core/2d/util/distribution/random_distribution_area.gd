@@ -95,6 +95,7 @@ class DistributionAreaLayer:
 	var discarded_object_circles := []
 	var discarded_point_clone_parent: Node
 	var exclusion_polygons := []
+	var clone_config_node: CloneConfig
 	func _init(_distribution_radius: float, _object_radius: float, _clone_items: Array,
 		_clone_parent: Node, _discarded_point_clone_parent: Node):
 		distribution_radius = _distribution_radius
@@ -117,6 +118,10 @@ class DistributionAreaLayer:
 			if !discard:
 				kept_object_circles.append(oc)
 		object_circles = kept_object_circles
+	func config_clone(clone: Node) -> void:
+		if !clone_config_node:
+			return
+		clone_config_node.config_cloned_node(clone)
 
 
 class DistributionAreaLayerSorter:
@@ -216,6 +221,7 @@ func _get_layers() -> Array:
 			if !polygons_by_layer_group_name.has(layer_node.layer_exclusion_polygon_node_group):
 				polygons_by_layer_group_name[layer_node.layer_exclusion_polygon_node_group] = _get_exclusion_polygons(layer_node.layer_exclusion_polygon_node_group)
 			layer.exclusion_polygons.append_array(polygons_by_layer_group_name[layer_node.layer_exclusion_polygon_node_group])
+		layer.clone_config_node = layer_node.get_clone_config_node()
 		layers.append(layer)
 
 	if layers.size() < 1:
@@ -299,6 +305,7 @@ func _duplicate_layer_items(layers: Array) -> void:
 		total_number_of_items += layer.object_circles.size()
 		for c in layer.object_circles:
 			var item = _get_rand_item(layer.clone_items, layer.clone_parent)
+			layer.config_clone(item)
 			item.owner = get_tree().get_edited_scene_root()
 			item.global_position = rect_position + c.center
 		if layer.discarded_point_clone_parent != null:

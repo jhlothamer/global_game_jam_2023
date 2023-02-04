@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tunnel_test_texture.png-5d09af71a958fdc0bea8d0dc9a186ea4.stex"
+path="res://.import/Dirt_extras_skull_ilikethepixies.png-02c0d6da0e5fc2f15df6a51960ad25f4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/temp/tunnel_test_texture.png"
-dest_files=[ "res://.import/tunnel_test_texture.png-5d09af71a958fdc0bea8d0dc9a186ea4.stex" ]
+source_file="res://assets/images/Dirt/Dirt_extras_skull_ilikethepixies.png"
+dest_files=[ "res://.import/Dirt_extras_skull_ilikethepixies.png-02c0d6da0e5fc2f15df6a51960ad25f4.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

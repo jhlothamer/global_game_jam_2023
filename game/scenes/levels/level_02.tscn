@@ -1,10 +1,95 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/levels/level_base.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/environment/item.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/images/Dirt/Dirt_extras_pieces_96px_ilikethepixies.png" type="Texture" id=3]
 
 [node name="Level02" instance=ExtResource( 1 )]
 intro_message_bbs = "[center]Even more yummies![/center]"
+
+[node name="DirtExtraSprite" type="Sprite" parent="DirtExtras" index="0"]
+position = Vector2( 98.8705, 281.005 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 2
+
+[node name="DirtExtraSprite2" type="Sprite" parent="DirtExtras" index="1"]
+position = Vector2( 228.996, 366.157 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 6
+
+[node name="DirtExtraSprite3" type="Sprite" parent="DirtExtras" index="2"]
+position = Vector2( 414.922, 223.787 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 10
+
+[node name="DirtExtraSprite4" type="Sprite" parent="DirtExtras" index="3"]
+position = Vector2( 244.912, 169.681 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 13
+
+[node name="DirtExtraSprite5" type="Sprite" parent="DirtExtras" index="4"]
+position = Vector2( 109.674, 106.9 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 6
+
+[node name="DirtExtraSprite6" type="Sprite" parent="DirtExtras" index="5"]
+position = Vector2( 316.69, 21.0088 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 9
+
+[node name="DirtExtraSprite7" type="Sprite" parent="DirtExtras" index="6"]
+position = Vector2( 35.707, 6.96988 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 11
+
+[node name="DirtExtraSprite8" type="Sprite" parent="DirtExtras" index="7"]
+position = Vector2( 0.0319214, 155.983 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 3
+
+[node name="DirtExtraSprite9" type="Sprite" parent="DirtExtras" index="8"]
+position = Vector2( 367.881, 353.161 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 1
+
+[node name="DirtExtraSprite10" type="Sprite" parent="DirtExtras" index="9"]
+position = Vector2( 473.246, 64.6322 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 5
+
+[node name="DirtExtraSprite11" type="Sprite" parent="DirtExtras" index="10"]
+position = Vector2( 175.631, 4.72981 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 9
+
+[node name="DirtExtraSprite12" type="Sprite" parent="DirtExtras" index="11"]
+position = Vector2( 489.549, 353.275 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 2
 
 [node name="Item" parent="Items" index="0" instance=ExtResource( 2 )]
 position = Vector2( 120, 80 )

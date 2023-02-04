@@ -1,10 +1,73 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/levels/level_base.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/environment/item.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/images/Dirt/Dirt_extras_pieces_96px_ilikethepixies.png" type="Texture" id=3]
 
 [node name="Level01" instance=ExtResource( 1 )]
 intro_message_bbs = "[center]Collect all the yummies![/center]"
+
+[node name="DirtExtraSprite" type="Sprite" parent="DirtExtras" index="0"]
+position = Vector2( 59.8718, 259.253 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 2
+
+[node name="DirtExtraSprite2" type="Sprite" parent="DirtExtras" index="1"]
+position = Vector2( 75.7811, 74.4956 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 12
+
+[node name="DirtExtraSprite3" type="Sprite" parent="DirtExtras" index="2"]
+position = Vector2( 167.212, 162.665 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 6
+
+[node name="DirtExtraSprite4" type="Sprite" parent="DirtExtras" index="3"]
+position = Vector2( 269.383, 304.963 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+
+[node name="DirtExtraSprite5" type="Sprite" parent="DirtExtras" index="4"]
+position = Vector2( 398.493, 207.414 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 8
+
+[node name="DirtExtraSprite6" type="Sprite" parent="DirtExtras" index="5"]
+position = Vector2( 324.848, 101.242 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 4
+
+[node name="DirtExtraSprite7" type="Sprite" parent="DirtExtras" index="6"]
+position = Vector2( 250.915, -2.24917 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 5
+
+[node name="DirtExtraSprite8" type="Sprite" parent="DirtExtras" index="7"]
+position = Vector2( 460.73, 92.7201 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 2
+
+[node name="DirtExtraSprite9" type="Sprite" parent="DirtExtras" index="8"]
+position = Vector2( -13.661, 159.263 )
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 3
+frame = 11
 
 [node name="Item" parent="Items" index="0" instance=ExtResource( 2 )]
 position = Vector2( 184, 152 )

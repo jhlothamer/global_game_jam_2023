@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://assets/images/temp/tunnel_test_texture.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/Dirt/tunnel_ilikethepixies2.png" type="Texture" id=1]
 [ext_resource path="res://scenes/levels/tunnel_lead.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/ui/hud.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/environment/item.tscn" type="PackedScene" id=4]
