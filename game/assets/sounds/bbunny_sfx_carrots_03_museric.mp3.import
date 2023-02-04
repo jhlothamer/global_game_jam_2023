@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bbunny_sfx_carrots_03_museric.mp3-65495f9474dd2a62afcbf4188001cb8c.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/bbunny_sfx_carrots_03_museric.mp3"
+dest_files=[ "res://.import/bbunny_sfx_carrots_03_museric.mp3-65495f9474dd2a62afcbf4188001cb8c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

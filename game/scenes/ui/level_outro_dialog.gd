@@ -16,15 +16,28 @@ enum OutroReason {
 	OOB_OR_TUNNEL,
 }
 
+export var carrot_wiggle_amount := 10.0
+export var carrot_wiggle_time := .4
+
 onready var _score_carrots_sprites := [
 	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot1/Sprite,
 	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot2/Sprite,
 	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot3/Sprite,
 ]
+onready var _score_carrots_shake := [
+	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot1/Sprite/ShakeIt,
+	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot2/Sprite/ShakeIt,
+	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot3/Sprite/ShakeIt,
+]
 onready var _score_carrots_particles := [
 	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot1/CPUParticles2D,
 	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot2/CPUParticles2D,
 	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot3/CPUParticles2D,
+]
+onready var _score_carrots_sounds := [
+	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot1/BBunnySfxCarros01,
+	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot2/BBunnySfxCarros02,
+	$UI/VBoxContainer/ScoreCarrots/ScoreCarrot3/BBunnySfxCarros03,
 ]
 onready var _results_lbl: Label = $UI/VBoxContainer/MarginContainer/VBoxContainer/ResultsLabel
 onready var _comment_lbl: Label = $UI/VBoxContainer/MarginContainer/VBoxContainer/CommentLabel
@@ -156,8 +169,9 @@ func _animate_score(score: int) -> void:
 			var sprite: Sprite = _score_carrots_sprites[i]
 			_tween.interpolate_property(sprite, "modulate", sprite.modulate, Color.white, .3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, .3)
 			_tween.start()
-			var particles: CPUParticles2D = _score_carrots_particles[i]
-			particles.emitting = true
+			_score_carrots_particles[i].emitting = true
+			_score_carrots_sounds[i].play()
+			_score_carrots_shake[i].start_shake()
 			yield(get_tree().create_timer(.7), "timeout")
 	
 	yield(get_tree().create_timer(.2), "timeout")

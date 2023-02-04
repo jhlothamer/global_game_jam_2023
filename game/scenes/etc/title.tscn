@@ -10,14 +10,14 @@
 [sub_resource type="DynamicFont" id=1]
 size = 28
 outline_size = 2
-outline_color = Color( 1, 0.498039, 0.164706, 1 )
+outline_color = Color( 0.713726, 0.286275, 0, 1 )
 extra_spacing_char = 2
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 64
 outline_size = 2
-outline_color = Color( 0.945098, 1, 0, 1 )
+outline_color = Color( 1, 0.8, 0, 1 )
 font_data = ExtResource( 6 )
 
 [node name="Title" type="Control"]
@@ -51,7 +51,7 @@ margin_bottom = 177.0
 margin_right = 502.0
 margin_bottom = 29.0
 theme = ExtResource( 3 )
-custom_colors/font_color = Color( 0.945098, 1, 0, 1 )
+custom_colors/font_color = Color( 1, 0.737255, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "~Boppy Bunny's~"
 align = 1
@@ -65,7 +65,7 @@ margin_top = 33.0
 margin_right = 502.0
 margin_bottom = 98.0
 theme = ExtResource( 3 )
-custom_colors/font_color = Color( 1, 0.498039, 0.164706, 1 )
+custom_colors/font_color = Color( 0.933333, 0.396078, 0.0117647, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Rootin'"
 align = 1
@@ -79,7 +79,7 @@ margin_top = 102.0
 margin_right = 502.0
 margin_bottom = 167.0
 theme = ExtResource( 3 )
-custom_colors/font_color = Color( 1, 0.498039, 0.164706, 1 )
+custom_colors/font_color = Color( 0.933333, 0.396078, 0.0117647, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Adventure"
 align = 1
@@ -119,6 +119,9 @@ text = "New Game"
 scene_to_load = "res://scenes/etc/how_to_play.tscn"
 grab_focus_on_start = true
 
+[node name="ButtonSound" parent="ButtonsMarginContainer/VBoxContainer/NewGameBtn" index="0"]
+sound_type = 1
+
 [node name="SettingsBtn" parent="ButtonsMarginContainer/VBoxContainer" instance=ExtResource( 4 )]
 margin_left = 171.0
 margin_right = 304.0
@@ -142,3 +145,5 @@ text = "Exit"
 align = 0
 
 [connection signal="pressed" from="ButtonsMarginContainer/VBoxContainer/ExitBtn" to="." method="_on_ExitBtn_pressed"]
+
+[editable path="ButtonsMarginContainer/VBoxContainer/NewGameBtn"]

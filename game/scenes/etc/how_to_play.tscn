@@ -102,6 +102,7 @@ margin_bottom = 37.0
 text = "Play"
 
 [node name="ButtonSound" parent="MarginContainer/VBoxContainer/HBoxContainer/PlayBtn" instance=ExtResource( 10 )]
+sound_type = 2
 
 [node name="GuideLabel" type="Label" parent="."]
 margin_left = 136.0

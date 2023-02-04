@@ -10,6 +10,14 @@ class CallbackData:
 	func invoke() -> void:
 		func_ref.call_funcv(binds)
 
+enum SoundType {
+	MENU,
+	PLAY1,
+	PLAY2
+	RANDOM,
+}
+
+export (SoundType) var sound_type: int
 
 var _sounds := []
 
@@ -35,9 +43,15 @@ func _ready():
 
 func _on_btn_pressed():
 	print("ButtonSound: !!")
-	if _sounds.size() > 0:
-		var sound: AudioStreamPlayer = _sounds[randi() % _sounds.size()]
-		sound.play()
-		yield(sound,"finished")
+
+	
+
+	var sound: AudioStreamPlayer
+	if sound_type == SoundType.RANDOM:
+		sound = _sounds[randi() % _sounds.size()]
+	else:
+		sound = _sounds[sound_type]
+	sound.play()
+	yield(sound,"finished")
 	for i in _call_backs:
 		i.invoke()

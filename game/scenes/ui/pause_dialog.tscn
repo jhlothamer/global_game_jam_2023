@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/themes/title_labels.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/components/transition_button/transition_button.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/ui/dialog_background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/themes/global.tres" type="Theme" id=5]
 [ext_resource path="res://scenes/ui/settings_dialog.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/components/button_sound.tscn" type="PackedScene" id=7]
 
 [node name="PauseDialog" type="Control"]
 anchor_right = 1.0
@@ -46,11 +47,16 @@ margin_right = 277.0
 margin_bottom = 86.0
 text = "Resume"
 
+[node name="ButtonSound" parent="VBoxContainer/ResumeBtn" instance=ExtResource( 7 )]
+sound_type = 2
+
 [node name="Settingsbtn" type="Button" parent="VBoxContainer"]
 margin_top = 106.0
 margin_right = 277.0
 margin_bottom = 143.0
 text = "Settings"
+
+[node name="ButtonSound" parent="VBoxContainer/Settingsbtn" instance=ExtResource( 7 )]
 
 [node name="MainMenuBtn" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 163.0

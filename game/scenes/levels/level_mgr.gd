@@ -14,6 +14,10 @@ var _level_scenes = [
 var _current_level = -1
 
 
+func _ready():
+	SignalMgr.register_subscriber(self, "title_screen_loaded")
+
+
 func advance_to_next_level() -> void:
 	_current_level += 1
 	if _current_level >= _level_scenes.size():
@@ -35,3 +39,7 @@ func reload_current_level() -> void:
 
 func get_level_number() -> int:
 	return _current_level + 1
+
+
+func _on_title_screen_loaded():
+	_current_level = -1
