@@ -8,6 +8,7 @@ var _level_scenes = [
 	"res://scenes/levels/level_05.tscn",
 	"res://scenes/levels/level_06.tscn",
 	"res://scenes/levels/level_07.tscn",
+	"res://scenes/levels/level_08.tscn",
 ]
 
 var _current_level = -1

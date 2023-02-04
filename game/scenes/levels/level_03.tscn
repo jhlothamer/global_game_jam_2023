@@ -1,14 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/levels/level_base.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/environment/crystal_obstacle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/environment/item.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/images/Dirt/Dirt_extras_pieces_96px_ilikethepixies.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/Dirt/Dirt_extras_Dino_ilikethepixies.png" type="Texture" id=5]
 
 [node name="Level03" instance=ExtResource( 1 )]
 intro_message_bbs = "[center]Crystals hurt!  Stay away from them![/center]"
 
-[node name="DirtExtras" parent="." index="1"]
+[node name="DirtExtrasDinoIlikethepixies" type="Sprite" parent="." index="1"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="DirtExtras" parent="." index="2"]
+visible = false
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -98,29 +104,32 @@ hframes = 5
 vframes = 3
 frame = 1
 
+[node name="TunnelLead" parent="." index="4"]
+position = Vector2( 80, 317 )
+
 [node name="Item" parent="Items" index="0" instance=ExtResource( 3 )]
 position = Vector2( 120, 104 )
 
 [node name="Item2" parent="Items" index="1" instance=ExtResource( 3 )]
-position = Vector2( 224, 208 )
+position = Vector2( 261, 156 )
 
 [node name="Item3" parent="Items" index="2" instance=ExtResource( 3 )]
-position = Vector2( 456, 144 )
+position = Vector2( 433, 317 )
 
 [node name="CrystalObstacle" parent="Obstacles" index="0" instance=ExtResource( 2 )]
-position = Vector2( 222, 80 )
+position = Vector2( 195, 104 )
 crystal_size = 3
 
 [node name="CrystalObstacle2" parent="Obstacles" index="1" instance=ExtResource( 2 )]
-position = Vector2( 156, 232 )
+position = Vector2( 80, 157 )
 crystal_size = 3
 
 [node name="CrystalObstacle3" parent="Obstacles" index="2" instance=ExtResource( 2 )]
-position = Vector2( 348, 160 )
+position = Vector2( 392, 151 )
 crystal_size = 3
 
 [node name="CrystalObstacle4" parent="Obstacles" index="3" instance=ExtResource( 2 )]
-position = Vector2( 311, 316 )
+position = Vector2( 360, 271 )
 crystal_size = 3
 
 [node name="CrystalObstacle5" parent="Obstacles" index="4" instance=ExtResource( 2 )]
@@ -128,5 +137,5 @@ position = Vector2( 419, 65 )
 crystal_size = 3
 
 [node name="CrystalObstacle6" parent="Obstacles" index="5" instance=ExtResource( 2 )]
-position = Vector2( 89, 308 )
+position = Vector2( 202, 292 )
 crystal_size = 3
