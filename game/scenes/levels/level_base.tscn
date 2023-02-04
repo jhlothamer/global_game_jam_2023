@@ -29,17 +29,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="OutOfBoundsReferenceRect" type="ReferenceRect" parent="."]
-visible = false
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 496.0
-margin_bottom = 368.0
-border_width = 2.0
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="TunnelLine2D" type="Line2D" parent="."]
 width = 32.0
 default_color = Color( 1, 1, 1, 1 )
@@ -88,6 +77,17 @@ __meta__ = {
 margin_right = 1176.0
 margin_bottom = 929.0
 texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="OutOfBoundsReferenceRect" type="ReferenceRect" parent="."]
+visible = false
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 488.0
+margin_bottom = 360.0
+border_width = 2.0
 __meta__ = {
 "_edit_lock_": true
 }

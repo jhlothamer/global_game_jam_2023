@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dirt_particles_cavein_ilikethepixiest.png-04348fab6ee980d02cf6cfde68edb8d3.stex"
+path="res://.import/Dirt_extras_Dino_ilikethepixies.png-3c9c27e04ede4a7275a7fb1fee467cf8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Rabbit/dirt_particles_cavein_ilikethepixiest.png"
-dest_files=[ "res://.import/dirt_particles_cavein_ilikethepixiest.png-04348fab6ee980d02cf6cfde68edb8d3.stex" ]
+source_file="res://assets/images/Dirt/Dirt_extras_Dino_ilikethepixies.png"
+dest_files=[ "res://.import/Dirt_extras_Dino_ilikethepixies.png-3c9c27e04ede4a7275a7fb1fee467cf8.stex" ]
 
 [params]
 

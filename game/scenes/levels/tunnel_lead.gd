@@ -50,6 +50,7 @@ func _ready():
 	SignalMgr.register_subscriber(self, "level_start")
 	SignalMgr.register_publisher(self, "level_over")
 	SignalMgr.register_subscriber(self, "level_stop")
+	SignalMgr.register_subscriber(self, "item_collected")
 
 	_direction = initial_direction.normalized()
 	_anim_sprite.rotation = _direction.angle()
@@ -141,6 +142,24 @@ func _physics_process(delta):
 	
 	var level_over_reason = _collided_or_out_of_bounds()
 	if level_over_reason != LevelOverReason.NONE:
+		_anim_sprite.play("ouch")
+		_anim_sprite.connect("frame_changed", self, "_on_AnimatedSprite_frame_changed")
+		_anim_sprite.pause_mode = Node.PAUSE_MODE_PROCESS
+		_dig_particles.emitting = false
 		emit_signal("level_over", level_over_reason)
 		set_physics_process(false)
+
+func _on_item_collected() -> void:
+	_anim_sprite.play("yum")
+
+func _on_AnimatedSprite_animation_finished():
+	if _anim_sprite.animation == "yum":
+		_anim_sprite.play("default")
+
+func _on_AnimatedSprite_frame_changed():
+	if _anim_sprite.animation != "ouch":
+		return
+	if _anim_sprite.frame >= 4:
+		_anim_sprite.rotation = 0.0
+
 
