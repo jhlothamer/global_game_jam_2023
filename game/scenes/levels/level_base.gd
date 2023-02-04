@@ -2,6 +2,7 @@ class_name Level
 extends Node2D
 
 export (String, MULTILINE) var intro_message_bbs := "[center]Good Luck![/center]"
+export var sound_track_pitch_scale := 1.0
 
 onready var _items:Node2D = $Items
 onready var _oob_ref_rect: ReferenceRect = $OutOfBoundsReferenceRect
@@ -15,6 +16,7 @@ func _enter_tree():
 
 
 func _ready():
+	SoundTracks.update_pitch_scale(sound_track_pitch_scale)
 	var number_of_items = _items.get_child_count()
 	for callback in _get_number_of_items_callbacks:
 		callback.call_func(number_of_items)

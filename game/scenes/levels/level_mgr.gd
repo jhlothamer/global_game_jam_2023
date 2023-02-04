@@ -8,7 +8,7 @@ var _level_scenes = [
 	"res://scenes/levels/level_05.tscn",
 	"res://scenes/levels/level_06.tscn",
 	"res://scenes/levels/level_07.tscn",
-	"res://scenes/levels/level_08.tscn",
+#	"res://scenes/levels/level_08.tscn",
 ]
 
 var _current_level = -1
@@ -18,6 +18,7 @@ func advance_to_next_level() -> void:
 	_current_level += 1
 	if _current_level >= _level_scenes.size():
 		_current_level = 0
+		SoundTracks.update_pitch_scale(1.0)
 		TransitionMgr.transition_to(GameConsts.SCENE_THANKS4PLAYING)
 		return
 	

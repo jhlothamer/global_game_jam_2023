@@ -25,6 +25,8 @@ func _on_Button_pressed():
 	
 	emit_signal("about_to_transition")
 	
+	SoundTracks.update_pitch_scale(1.0)
+
 	TransitionMgr.transition_to(scene_to_load, transition_speed_seconds, fade_sound)
 
 

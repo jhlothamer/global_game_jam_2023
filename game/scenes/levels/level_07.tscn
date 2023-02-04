@@ -1,18 +1,26 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/levels/level_base.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/environment/crystal_obstacle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/environment/beetle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/environment/item.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/images/Dirt/Dirt_extras_Dino_ilikethepixies.png" type="Texture" id=5]
 
 [node name="Level07" instance=ExtResource( 1 )]
 intro_message_bbs = "[center]Beetles + crystals = double trouble!!![/center]"
 
-[node name="TunnelLead" parent="." index="3"]
+[node name="DirtExtrasDinoIlikethepixies" type="Sprite" parent="." index="1"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="DirtExtras" parent="." index="2"]
+visible = false
+
+[node name="TunnelLead" parent="." index="4"]
 position = Vector2( 54, 328 )
 
 [node name="Item" parent="Items" index="0" instance=ExtResource( 4 )]
-position = Vector2( 136, 328 )
+position = Vector2( 176, 328 )
 
 [node name="Item2" parent="Items" index="1" instance=ExtResource( 4 )]
 position = Vector2( 368, 331 )
@@ -21,13 +29,13 @@ position = Vector2( 368, 331 )
 position = Vector2( 368, 51 )
 
 [node name="Item4" parent="Items" index="3" instance=ExtResource( 4 )]
-position = Vector2( 136, 56 )
+position = Vector2( 176, 56 )
 
 [node name="Item5" parent="Items" index="4" instance=ExtResource( 4 )]
 position = Vector2( 256, 192 )
 
 [node name="CrystalObstacle" parent="Obstacles" index="0" instance=ExtResource( 2 )]
-position = Vector2( 136, 111 )
+position = Vector2( 176, 111 )
 crystal_size = 3
 
 [node name="CrystalObstacle2" parent="Obstacles" index="1" instance=ExtResource( 2 )]
@@ -39,7 +47,7 @@ position = Vector2( 368, 107 )
 crystal_size = 3
 
 [node name="CrystalObstacle4" parent="Obstacles" index="3" instance=ExtResource( 2 )]
-position = Vector2( 136, 276 )
+position = Vector2( 176, 276 )
 crystal_size = 3
 
 [node name="Beetle" parent="Obstacles" index="4" instance=ExtResource( 3 )]
