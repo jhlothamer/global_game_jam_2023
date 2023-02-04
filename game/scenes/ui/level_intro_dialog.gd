@@ -47,7 +47,6 @@ func _animate_in():
 	yield(self, "ready")
 	_background.position = _background_start
 	_ui.rect_position = _ui_start
-	print(_ui_start)
 	
 	_tween.interpolate_property(_background, "position", _background_start, _background_middle, .4, Tween.TRANS_LINEAR, Tween.EASE_IN, .2)
 	var delay = _tween.get_runtime() + .2

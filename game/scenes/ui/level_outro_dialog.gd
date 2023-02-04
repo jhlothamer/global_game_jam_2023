@@ -1,6 +1,8 @@
 extends Control
 
 signal level_stop()
+signal level_scored(new_score)
+
 
 const SCORE_MESSAGE = [
 	"Collect more veggies to continue.",
@@ -58,6 +60,7 @@ func _ready():
 	SignalMgr.register_subscriber(self, "level_completed")
 	SignalMgr.register_subscriber(self, "obstacle_hit")
 	SignalMgr.register_publisher(self, "level_stop")
+	SignalMgr.register_publisher(self, "level_scored")
 	
 	_ui.modulate = Color.transparent
 	_button_bar.modulate = Color.transparent
@@ -94,6 +97,8 @@ func _show_dialog(win: bool, comment_msg: String):
 	get_tree().paused = true
 	
 	var score = _get_score()
+	
+	emit_signal("level_scored", score)
 	
 
 	_results_lbl.text = SCORE_MESSAGE[score]

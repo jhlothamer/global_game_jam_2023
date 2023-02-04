@@ -42,9 +42,6 @@ func _ready():
 
 
 func _on_btn_pressed():
-	print("ButtonSound: !!")
-
-	
 
 	var sound: AudioStreamPlayer
 	if sound_type == SoundType.RANDOM:

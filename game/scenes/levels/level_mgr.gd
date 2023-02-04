@@ -11,11 +11,19 @@ var _level_scenes = [
 #	"res://scenes/levels/level_08.tscn",
 ]
 
+var _level_scores = []
+
 var _current_level = -1
 
 
 func _ready():
 	SignalMgr.register_subscriber(self, "title_screen_loaded")
+	SignalMgr.register_subscriber(self, "level_scored")
+	
+	for i in _level_scenes.size():
+		_level_scores.append(0)
+	
+	#_level_scores = FileUtil.load_json_data(GameConsts.FILE_PATH_LEVEL_SCORE, _level_scores)
 
 
 func advance_to_next_level() -> void:
@@ -41,5 +49,25 @@ func get_level_number() -> int:
 	return _current_level + 1
 
 
-func _on_title_screen_loaded():
+func get_level_score(level_number: int) -> int:
+	return _level_scores[level_number]
+
+
+func is_level_last_unpassed(level_number: int) -> bool:
+	return _level_scores[level_number] == 0 and (level_number == 0 or _level_scores[level_number - 1] > 0)
+
+
+func _on_title_screen_loaded() -> void:
 	_current_level = -1
+
+
+func _on_level_scored(score: int) -> void:
+	if _level_scores.size() < _current_level + 1:
+		while _level_scores.size() < _current_level + 1:
+			_level_scores.add(0)
+	_level_scores[_current_level] = score
+	#FileUtil.save_json_data(GameConsts.FILE_PATH_LEVEL_SCORE, _level_scores)
+
+
+
+
