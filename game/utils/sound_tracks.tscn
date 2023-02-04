@@ -12,7 +12,7 @@ script = ExtResource( 2 )
 
 [node name="SceneSoundTrack" type="Node" parent="SoundTrackMgr"]
 script = ExtResource( 1 )
-scenes = [ "res://scenes/etc/title.tscn", "res://scenes/etc/how_to_play.tscn", "res://scenes/etc/credits.tscn", "res://scenes/levels/level_01.tscn", "res://scenes/levels/level_02.tscn", "res://scenes/levels/level_03.tscn", "res://scenes/etc/settings.tscn", "res://scenes/etc/thanks_4_playing.tscn" ]
+scenes = [ "res://scenes/etc/title.tscn", "res://scenes/etc/how_to_play.tscn", "res://scenes/etc/credits.tscn", "res://scenes/levels/level_01.tscn", "res://scenes/levels/level_02.tscn", "res://scenes/levels/level_03.tscn", "res://scenes/etc/settings.tscn", "res://scenes/etc/thanks_4_playing.tscn", "res://scenes/levels/level_04.tscn", "res://scenes/levels/level_05.tscn", "res://scenes/levels/level_06.tscn", "res://scenes/levels/level_07.tscn" ]
 startup = true
 
 [node name="BbunnyMxLevel01" type="AudioStreamPlayer" parent="SoundTrackMgr/SceneSoundTrack"]

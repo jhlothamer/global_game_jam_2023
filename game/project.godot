@@ -25,6 +25,11 @@ _global_script_classes=[ {
 "path": "res://addons/godot_helper_pack/core/util/bit_flag_util.gd"
 }, {
 "base": "Node",
+"class": "ButtonSound",
+"language": "GDScript",
+"path": "res://scenes/components/button_sound.gd"
+}, {
+"base": "Node",
 "class": "Camera3DMove",
 "language": "GDScript",
 "path": "res://addons/godot_helper_pack/core/3d/camera/camera3d_move.gd"
@@ -293,6 +298,7 @@ _global_script_class_icons={
 "AngleUtil": "",
 "ArrayUtil": "",
 "BitFlagUtil": "",
+"ButtonSound": "",
 "Camera3DMove": "",
 "CameraLimiter2D": "",
 "CameraMove2D": "",

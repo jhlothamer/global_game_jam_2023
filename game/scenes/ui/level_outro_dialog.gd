@@ -159,7 +159,8 @@ func _animate_score(score: int) -> void:
 			var particles: CPUParticles2D = _score_carrots_particles[i]
 			particles.emitting = true
 			yield(get_tree().create_timer(.7), "timeout")
-			
+	
+	yield(get_tree().create_timer(.2), "timeout")
 
 
 

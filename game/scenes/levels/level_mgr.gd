@@ -31,3 +31,5 @@ func reload_current_level() -> void:
 			_current_level = temp
 	TransitionMgr.transition_to(_level_scenes[_current_level])
 
+func get_level_number() -> int:
+	return _current_level + 1

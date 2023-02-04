@@ -53,7 +53,7 @@ __meta__ = {
 }
 
 [node name="TunnelLead" parent="." instance=ExtResource( 4 )]
-position = Vector2( 32, 192 )
+position = Vector2( 40, 192 )
 line_2d = NodePath("../TunnelLine2D")
 out_of_bounds_ref_rect = NodePath("../OutOfBoundsReferenceRect")
 
@@ -65,6 +65,9 @@ texture_mode = 1
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CaveIn" parent="." instance=ExtResource( 5 )]
 cave_in_line_2d = NodePath("../CaveInLine2D")

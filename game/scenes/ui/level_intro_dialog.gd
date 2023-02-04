@@ -18,9 +18,11 @@ onready var _ui_end: Vector2 = $StartsNStops/UIEnd.position
 
 onready var _tween: Tween = $Tween
 
+onready var _level_Lbl: Label = $VBoxContainer/LevelLabel
 
 func _ready():
 	SignalMgr.register_publisher(self, "level_start")
+	_level_Lbl.text = "Level %02d" % LevelMgr.get_level_number()
 	get_tree().paused = true
 	_ui.modulate = Color.transparent
 	show()

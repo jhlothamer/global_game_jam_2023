@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://scenes/components/button_sound.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/transition_button/transition_button.gd" type="Script" id=2]
 
 [node name="Button" type="Button"]
@@ -8,5 +9,7 @@ margin_bottom = 20.0
 text = "Button"
 align = 0
 script = ExtResource( 2 )
+
+[node name="ButtonSound" parent="." instance=ExtResource( 1 )]
 
 [connection signal="pressed" from="." to="." method="_on_Button_pressed"]
