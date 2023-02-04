@@ -14,4 +14,4 @@ position = Vector2( 89, 192 )
 position = Vector2( 154, 192 )
 
 [node name="Item3" parent="Items" index="2" instance=ExtResource( 3 )]
-position = Vector2( 217, 192 )
+position = Vector2( 348, 192 )
