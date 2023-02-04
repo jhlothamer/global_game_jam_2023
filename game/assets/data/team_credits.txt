@@ -22,9 +22,12 @@
 [cell][/cell]
 
 [cell]Composer/Sound Designer[/cell]
-[cell]Eric Nielson[/cell]
+[cell]Eric Nielsen[/cell]
 
 [cell][/cell]
 [cell][url=https://soundcloud.com/museric]https://soundcloud.com/museric[/url][/cell]
+
+[cell][/cell]
+[cell][url=https://www.museric.com]https://www.museric.com/[/url][/cell]
 
 [/table]

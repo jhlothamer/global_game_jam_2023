@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bbunny_mx_menu_01_museric.mp3-1f8b0bfe8b6f94bd259f43482ef8493c.mp3str"
+
+[deps]
+
+source_file="res://assets/music/bbunny_mx_menu_01_museric.mp3"
+dest_files=[ "res://.import/bbunny_mx_menu_01_museric.mp3-1f8b0bfe8b6f94bd259f43482ef8493c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
