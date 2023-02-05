@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://addons/godot_helper_pack/core/audio/scene_sound_track.gd" type="Script" id=1]
 [ext_resource path="res://addons/godot_helper_pack/core/audio/sound_track_mgr.gd" type="Script" id=2]
 [ext_resource path="res://assets/music/bbunny_mx_level_01_museric.mp3" type="AudioStream" id=3]
 [ext_resource path="res://utils/sound_tracks.gd" type="Script" id=4]
-[ext_resource path="res://assets/music/bbunny_mx_menu_01_museric.mp3" type="AudioStream" id=5]
 
 [node name="SoundTracks" type="Node"]
 pause_mode = 2
@@ -13,21 +12,12 @@ script = ExtResource( 4 )
 [node name="SoundTrackMgr" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="SceneSoundTrack" type="Node" parent="SoundTrackMgr"]
+[node name="SceneSoundTrackLevels" type="Node" parent="SoundTrackMgr"]
 script = ExtResource( 1 )
-scenes = [ "res://scenes/etc/title.tscn", "res://scenes/etc/credits.tscn", "res://scenes/etc/settings.tscn" ]
+scenes = [ "res://scenes/etc/how_to_play.tscn", "res://scenes/levels/level_01.tscn", "res://scenes/levels/level_02.tscn", "res://scenes/levels/level_03.tscn", "res://scenes/etc/thanks_4_playing.tscn", "res://scenes/levels/level_04.tscn", "res://scenes/levels/level_05.tscn", "res://scenes/levels/level_06.tscn", "res://scenes/levels/level_07.tscn", "res://scenes/etc/title.tscn", "res://scenes/etc/settings.tscn", "res://scenes/etc/credits.tscn" ]
 startup = true
 
-[node name="BbunnyMxMenu01" type="AudioStreamPlayer" parent="SoundTrackMgr/SceneSoundTrack"]
-stream = ExtResource( 5 )
-bus = "Music"
-
-[node name="SceneSoundTrack2" type="Node" parent="SoundTrackMgr"]
-script = ExtResource( 1 )
-scenes = [ "res://scenes/etc/how_to_play.tscn", "res://scenes/levels/level_01.tscn", "res://scenes/levels/level_02.tscn", "res://scenes/levels/level_03.tscn", "res://scenes/etc/thanks_4_playing.tscn", "res://scenes/levels/level_04.tscn", "res://scenes/levels/level_05.tscn", "res://scenes/levels/level_06.tscn", "res://scenes/levels/level_07.tscn" ]
-startup = true
-
-[node name="BbunnyMxLevel01" type="AudioStreamPlayer" parent="SoundTrackMgr/SceneSoundTrack2"]
+[node name="BbunnyMxLevel01" type="AudioStreamPlayer" parent="SoundTrackMgr/SceneSoundTrackLevels"]
 stream = ExtResource( 3 )
 bus = "Music"
 

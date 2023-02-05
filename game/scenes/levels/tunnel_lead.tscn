@@ -1,10 +1,11 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://scenes/levels/tunnel_lead.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/Rabbit/rabbit_run_ilikethepixies.png" type="Texture" id=2]
 [ext_resource path="res://assets/images/Rabbit/rabbit_yum_ilikethepixies-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://assets/images/Rabbit/rabbit_ouch_ghost_ilikethepixies.png" type="Texture" id=4]
 [ext_resource path="res://assets/images/Dirt/dirt_particles_dig_ilikethepixiest.png" type="Texture" id=5]
+[ext_resource path="res://assets/sounds/bbunny_sfx_dig_01_museric.mp3" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -200,5 +201,10 @@ color_ramp = SubResource( 6 )
 anim_speed = 1.0
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="BBunnySfxDig01" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 6.0
+bus = "SoundFx"
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

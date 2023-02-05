@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bbunny_sfx_dig_01_museric.mp3-3e0754a4db640485ced69ca46166f425.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/bbunny_sfx_dig_01_museric.mp3"
+dest_files=[ "res://.import/bbunny_sfx_dig_01_museric.mp3-3e0754a4db640485ced69ca46166f425.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

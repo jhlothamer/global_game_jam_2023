@@ -26,6 +26,7 @@ onready var _turn_speed := deg2rad(turn_speed)
 onready var _anim_sprite: AnimatedSprite = $AnimatedSprite
 onready var _tween: Tween = $Tween
 onready var _dig_particles: CPUParticles2D = $AnimatedSprite/CPUParticles2D
+onready var _dig_sound: AudioStreamPlayer = $BBunnySfxDig01
 
 
 var _direction := Vector2.RIGHT
@@ -107,10 +108,12 @@ func _flip_bunny() -> void:
 
 func _on_level_start():
 	_dig_particles.emitting = true
+	_dig_sound.play()
 
 
 func _on_level_stop():
 	_dig_particles.emitting = false
+	_dig_sound.stop()
 
 
 func _physics_process(delta):
@@ -147,6 +150,7 @@ func _physics_process(delta):
 		_anim_sprite.connect("frame_changed", self, "_on_AnimatedSprite_frame_changed")
 		_anim_sprite.pause_mode = Node.PAUSE_MODE_PROCESS
 		_dig_particles.emitting = false
+		_dig_sound.stop()
 		emit_signal("level_over", level_over_reason)
 		set_physics_process(false)
 
@@ -169,4 +173,5 @@ func _on_obstacle_hit(_obstacle) -> void:
 	_anim_sprite.connect("frame_changed", self, "_on_AnimatedSprite_frame_changed")
 	_anim_sprite.pause_mode = Node.PAUSE_MODE_PROCESS
 	_dig_particles.emitting = false
+	_dig_sound.stop()
 	set_physics_process(false)
