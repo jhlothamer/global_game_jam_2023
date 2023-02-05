@@ -1,7 +1,7 @@
 # Global Game Jam 2023 - Roots
 
 <p align="center">
-<img src="images/boppy_bunnys_rootin_adventure.jpg" />
+<img height=400 src="images/boppy_bunnys_rootin_adventure.png" />
 </p>
 
 This game was created for the [Global Game Jam 2023](https://globalgamejam.org/). The theme for this year's jam was "roots". Our idea started out as a growing root dodging and zapping things in the soil, but it morphed into a cute digging bunny eating root veggies.
