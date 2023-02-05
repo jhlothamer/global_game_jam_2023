@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://images/ggl_trailer_game_title.png" type="Texture" id=1]
+[ext_resource path="res://shiny_material.tres" type="Material" id=2]
+
+[node name="ShinyGameTitle" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="GglTrailerGameTitle" type="Sprite" parent="."]
+material = ExtResource( 2 )
+texture = ExtResource( 1 )
+centered = false

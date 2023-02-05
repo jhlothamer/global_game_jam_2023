@@ -25,7 +25,7 @@ shader_param/shine_size = 0.001
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 11, 15 )
+extents = Vector2( 7, 9 )
 
 [node name="CrystalObstacle" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -37,10 +37,10 @@ visible = false
 [node name="Sprite" type="Sprite" parent="." index="1"]
 material = SubResource( 3 )
 texture = ExtResource( 3 )
-offset = Vector2( 1, -4 )
+offset = Vector2( -1, -4 )
 hframes = 3
 vframes = 3
-frame = 2
+frame = 6
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource( 1 )
